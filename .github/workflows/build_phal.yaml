@@ -32,6 +32,7 @@ jobs:
       - name: Cleanup
         run: |
           (cd /tmp/build && tar c .) | (cd . && tar xf -)
+          sudo rm -rf python-*/pkg
           sudo rm -rf python-*/src
           sudo rm -rf python-*/*.whl
           sudo rm -rf python-*/*.pkg.tar.zst

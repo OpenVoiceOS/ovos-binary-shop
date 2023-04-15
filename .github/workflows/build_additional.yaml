@@ -1,0 +1,46 @@
+name: OVOS additional PKGUILDS
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  pkgbuild:
+    runs-on: ubuntu-latest
+    container:
+      image: manjarolinux/base:latest
+    steps:
+      - name: Install build Dependencies
+        run: |
+          echo "Y" | sudo pacman -Sy pkgfile namcap python-pip git
+          pip install pypi2pkgbuild
+          pkgfile --update
+      - name: gen PKGBUILDS
+        run: |
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install speechrecognition
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install bitstruct
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install pprintpp
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install beautifulsoup4
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install pako
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre tutubo
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install requests-cache
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps wallpaper-finder
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-skill-installer
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-audio-plugin-simple
+
+      - uses: actions/checkout@v3
+        with:
+          ref: dev
+      - name: Cleanup
+        run: |
+          (cd /tmp/build && tar c .) | (cd . && tar xf -)
+          sudo rm -rf python-*/pkg
+          sudo rm -rf python-*/src
+          sudo rm -rf python-*/*.whl
+          sudo rm -rf python-*/*.pkg.tar.zst
+          ls
+          git config --global --add safe.directory /__w/ovos-binary-shop/ovos-binary-shop
+      - name: Commit
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: pkgbuild additional
+          add: 'python-* --force'
