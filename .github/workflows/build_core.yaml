@@ -10,17 +10,18 @@ jobs:
     steps:
       - name: Install build Dependencies
         run: |
-          echo "Y" | sudo pacman -Sy pkgfile namcap python-pip git
-          pip install pypi2pkgbuild
+          sudo pacman --noconfirm --needed -Sy pkgfile namcap python-pip git swig cython base-devel fann cargo ninja python-google-api-core python-setuptools python-wheel pkgconf
+          pip install git+https://github.com/anntzer/pypi2pkgbuild
           pkgfile --update
       - name: gen PKGBUILDS
+        #sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-bus
         run: |
           sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-core
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-bus
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-gui
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-skills-manager
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos_bus_client
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-lingua-franca
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-messagebus
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-gui
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-skills-manager
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos_bus_client
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-lingua-franca
       - uses: actions/checkout@v3
         with:
           ref: dev
