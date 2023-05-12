@@ -10,46 +10,48 @@ jobs:
     steps:
       - name: Install build Dependencies
         run: |
-          echo "Y" | sudo pacman -Sy pkgfile namcap python-pip git
-          pip install pypi2pkgbuild
+          sudo pacman --noconfirm --needed -Sy pkgfile namcap python-pip python-setuptools git swig cython base-devel fann cargo ninja python-google-api-core python-setuptools python-wheel pkgconf llvm
+          pip install git+https://github.com/anntzer/pypi2pkgbuild
           pkgfile --update
       - name: gen PKGBUILDS
         run: |
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-tts-plugin-espeakNG
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-tts-plugin-pico
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-tts-plugin-cotovia
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-tts-plugin-polly
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-tts-plugin-voicerss
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-tts-plugin-responsivevoice
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre git+https://github.com/OpenVoiceOS/ovos-tts-plugin-marytts
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-ww-plugin-pocketsphinx
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-ww-plugin-precise
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-ww-plugin-precise-lite
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-ww-plugin-openWakeWord
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-ww-plugin-vosk
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-ww-plugin-snowboy
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-ww-plugin-nyumaya
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-ww-plugin-hotkeys
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-vad-plugin-webrtcvad 
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-vad-plugin-silero
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-stt-plugin-vosk
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-stt-plugin-server
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-tts-plugin-espeakNG
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-tts-plugin-pico
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-tts-plugin-cotovia
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-tts-plugin-polly
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-tts-plugin-voicerss
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-tts-plugin-responsivevoice
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-tts-plugin-marytts
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-ww-plugin-pocketsphinx
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-ww-plugin-precise
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-ww-plugin-precise-lite
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-ww-plugin-openWakeWord
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-ww-plugin-vosk
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-ww-plugin-snowboy
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-ww-plugin-nyumaya
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-ww-plugin-hotkeys
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-vad-plugin-webrtcvad
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-vad-plugin-silero
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-stt-plugin-vosk
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-stt-plugin-server
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install git+https://github.com/OpenVoiceOS/ovos-stt-http-server
           sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-stt-plugin-whispercpp
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-stt-plugin-pocketsphinx
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-stt-plugin-selene
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-stt-plugin-fasterwhisper
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-stt-plugin-pocketsphinx
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-stt-plugin-selene
           sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre git+https://github.com/OpenVoiceOS/ovos-stt-plugin-privox
           sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre git+https://github.com/OpenVoiceOS/ovos-stt-plugin-whisper-tflite
           sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre git+https://github.com/OpenVoiceOS/ovos-stt-plugin-whisper
           sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre git+https://github.com/OpenVoiceOS/ovos-stt-plugin-deepgram
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-stt-plugin-chromium
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-tts-plugin-server
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-tts-plugin-mimic
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-tts-plugin-mimic2
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-tts-plugin-mimic3
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-tts-plugin-mimic3-server
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-tts-plugin-google-tx
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-stt-plugin-chromium
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-tts-plugin-server
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-tts-plugin-mimic
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-tts-plugin-mimic2
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-tts-plugin-mimic3
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-tts-plugin-mimic3-server
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-tts-plugin-google-tx
           sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre git+https://github.com/OpenVoiceOS/ovos-tts-plugin-privox
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-tts-plugin-beepspeak
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-tts-plugin-beepspeak
       - uses: actions/checkout@v3
         with:
           ref: dev

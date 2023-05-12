@@ -10,34 +10,36 @@ jobs:
     steps:
       - name: Install build Dependencies
         run: |
-          echo "Y" | sudo pacman -Sy pkgfile namcap python-pip git
-          pip install pypi2pkgbuild
+          sudo pacman --noconfirm --needed -Sy pkgfile namcap python-pip git swig cython base-devel fann cargo ninja python-google-api-core python-setuptools python-wheel pkgconf
+          pip install git+https://github.com/anntzer/pypi2pkgbuild
           pkgfile --update
       - name: gen PKGBUILDS
         run: |
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre git+https://github.com/OpenVoiceOS/ovos-skill-weather
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre git+https://github.com/OpenVoiceOS/skill-ovos-tunein
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre git+https://github.com/OpenVoiceOS/skill-ovos-wikipedia
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre git+https://github.com/OpenVoiceOS/skill-ovos-news
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre git+https://github.com/OpenVoiceOS/skill-ovos-ddg
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre git+https://github.com/OpenVoiceOS/skill-ovos-camera
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre git+https://github.com/OpenVoiceOS/skill-ovos-bandcamp
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre git+https://github.com/OpenVoiceOS/skill-ovos-youtube
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre git+https://github.com/OpenVoiceOS/skill-ovos-youtube-music
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre git+https://github.com/OpenVoiceOS/skill-ovos-wolfie
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre git+https://github.com/OpenVoiceOS/skill-ovos-soundcloud
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-skill-weather
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre git+https://github.com/OpenVoiceOS/skill-ovos-tunein
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre skill-wikipedia-for-humans
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre skill-news
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre skill-ddg
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre git+https://github.com/OpenVoiceOS/skill-ovos-camera
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre git+https://github.com/OpenVoiceOS/skill-ovos-bandcamp
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre git+https://github.com/OpenVoiceOS/skill-ovos-youtube
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre git+https://github.com/OpenVoiceOS/skill-ovos-youtube-music
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre git+https://github.com/OpenVoiceOS/skill-ovos-wolfie
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre git+https://github.com/OpenVoiceOS/skill-ovos-soundcloud
           sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-skill-volume
           sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-skill-fallback-unknown
           sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-skill-stop
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre neon-skill-alerts
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre neon-skill-alerts
           sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-skill-personal
           sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-skill-naptime
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-skill-date-time
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-skill-date-time
           sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-skill-hello-world
           sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-skill-filebrowser
           sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-skill-setup
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-skill-somafm
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-skill-somafm
           sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-skill-homescreen
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install padatious
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install adapt-parser
 
       - uses: actions/checkout@v3
         with:

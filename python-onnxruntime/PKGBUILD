@@ -3,28 +3,43 @@
 export PIP_CONFIG_FILE=/dev/null
 export PIP_DISABLE_PIP_VERSION_CHECK=true
 
-pkgname=python-ovos-phal
+pkgname=python-onnxruntime
 epoch=
-pkgver=0.0.5a4
+pkgver=1.14.1
 pkgrel=00
-pkgdesc='Plugin based Hardware Abstraction Layer for OVOS'
-arch=(any)
-url=https://github.com/OpenVoiceOS/ovos-PHAL
-license=(custom:apache-2.0)
-depends=(python python-ovos-bus-client python-ovos-config python-ovos-phal-plugin-color-scheme-manager python-ovos-phal-plugin-connectivity-events python-ovos-phal-plugin-ipgeo python-ovos-phal-plugin-network-manager python-ovos-phal-plugin-oauth python-ovos-phal-plugin-system python-ovos-phal-plugin-wallpaper-manager python-ovos-plugin-manager python-ovos-utils python-ovos-workshop)
-## EXTRA_DEPENDS ##
-makedepends=(python-pip)
+pkgdesc='ONNX Runtime is a runtime accelerator for Machine Learning models'
+arch=(aarch64 x86_64)
+url=https://onnxruntime.ai
+license=(MIT)
+depends=(python python-coloredlogs python-flatbuffers python-numpy python-packaging python-protobuf python-sympy)
+depends+=(python-scipy python-importlib-metadata python-setuptools python-requests)
+makedepends=()
 checkdepends=()
 provides=()
 conflicts=(${provides%=*})  # No quotes, to avoid an empty entry.
 source=(PKGBUILD_EXTRAS)
 md5sums=(SKIP)
 noextract=()
-source+=(https://files.pythonhosted.org/packages/df/4e/4edd27620fedccc22ade0aa78981ff83974783930ef67d756874101ec1ac/ovos_PHAL-0.0.5a4-py3-none-any.whl)
-md5sums+=(ca8437f14421ec4dac2d20330fc80f73)
-noextract+=(ovos_PHAL-0.0.5a4-py3-none-any.whl)
+source_aarch64=(https://files.pythonhosted.org/packages/3f/b0/f8f971234d06b95f1237e54b80b123c38aa391cafcb9cafdf3fa22889a1f/onnxruntime-1.14.1-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl)
+md5sums_aarch64=(30a60fd25cfd48af02fc062e6eaaed92)
+noextract+=(onnxruntime-1.14.1-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl)
+source_aarch64=(https://files.pythonhosted.org/packages/3f/b0/f8f971234d06b95f1237e54b80b123c38aa391cafcb9cafdf3fa22889a1f/onnxruntime-1.14.1-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl)
+md5sums_aarch64=(30a60fd25cfd48af02fc062e6eaaed92)
+noextract+=(onnxruntime-1.14.1-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl)
+source_x86_64=(https://files.pythonhosted.org/packages/c6/c2/6ed10ae35c64a0f5e530e19db4cbc6650accabf39c22c2ddf274f26a6a33/onnxruntime-1.14.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl)
+md5sums_x86_64=(53d85cff817d07a67bae584ea593dcd5)
+noextract+=(onnxruntime-1.14.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl)
+source_x86_64=(https://files.pythonhosted.org/packages/c6/c2/6ed10ae35c64a0f5e530e19db4cbc6650accabf39c22c2ddf274f26a6a33/onnxruntime-1.14.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl)
+md5sums_x86_64=(53d85cff817d07a67bae584ea593dcd5)
+noextract+=(onnxruntime-1.14.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl)
+source_aarch64=(https://files.pythonhosted.org/packages/75/a0/306daa2b5c090791cfc2ffed505478a02d3c771343988c5d5f3cf02c0d59/onnxruntime-1.14.1-cp310-cp310-manylinux_2_27_aarch64.whl)
+md5sums_aarch64=(6cb1c4f1064308350ff65d8c31a1551a)
+noextract+=(onnxruntime-1.14.1-cp310-cp310-manylinux_2_27_aarch64.whl)
+source_x86_64=(https://files.pythonhosted.org/packages/f8/c7/d2f32b66bebf9ee34ac3a8a5f70a55f4afd6027d0a353bd578ccabba1915/onnxruntime-1.14.1-cp310-cp310-manylinux_2_27_x86_64.whl)
+md5sums_x86_64=(80b5df746714d83c2345b063d43ef014)
+noextract+=(onnxruntime-1.14.1-cp310-cp310-manylinux_2_27_x86_64.whl)
 source+=(LICENSE)
-md5sums+=(f8e21961459543cbb99d684336cca043)
+md5sums+=(3ddc9ea27f7286b3d3de7cbf734ffd09)
 
 _first_source() {
     echo " ${source_i686[@]} ${source_x86_64[@]} ${source[@]}" |
@@ -114,8 +129,12 @@ _package() {
         --no-deps --ignore-installed --no-warn-script-location \
         "$(ls ./*.whl 2>/dev/null || echo ./"$(_dist_name)")"
     if [[ -d "$pkgdir/usr/bin" ]]; then  # Fix entry points.
+        python="#!$(readlink -f _tmpenv)/bin/python"
         for f in "$pkgdir/usr/bin/"*; do
-            if [[ $(head -n1 "$f") = "#!$(readlink -f _tmpenv)/bin/python" ]]; then
+            # Like [[ "$(head -n1 "$f")" = "#!$(readlink -f _tmpenv)/bin/python" ]]
+            # but without bash warning on null bytes in "$f" (if it is actually
+            # a compiled executable, not an entry point).
+            if python -c 'import os, sys; sys.exit(not open(sys.argv[1], "rb").read().startswith(os.fsencode(sys.argv[2]) + b"\n"))' "$f" "$python"; then
                 sed -i '1c#!/usr/bin/python' "$f"
             fi
         done

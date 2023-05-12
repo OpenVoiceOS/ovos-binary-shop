@@ -10,9 +10,9 @@ jobs:
     steps:
       - name: Install build Dependencies
         run: |
-          echo "Y" | sudo pacman -Sy pkgfile namcap python-pip git
-          sudo pacman -S --noconfirm base-devel portaudio
-          pip install pypi2pkgbuild
+          sudo pacman --noconfirm --needed -Sy pkgfile namcap python-pip git swig cython base-devel fann gcc-fortran cargo portaudio ninja python-google-api-core python-setuptools python-wheel pkgconf llvm
+          yes | LC_ALL=en_US.UTF-8 sudo pacman -S openblas
+          pip install git+https://github.com/anntzer/pypi2pkgbuild
           pkgfile --update
       - name: gen PKGBUILDS
         run: |
@@ -22,17 +22,31 @@ jobs:
           sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install beautifulsoup4
           sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install pako
           sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install pyaudio
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install pyalsaaudio
           sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install webrtcvad
           sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install pocketsphinx
           sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install petact
           sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install precise-runner
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install onnxruntime
           sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre tutubo
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install yt-dlp
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install py-mplayer
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install py_bandcamp
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install deezeridu
           sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install requests-cache
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps wallpaper-finder
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-skill-installer
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-audio-plugin-simple
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-ww-plugin-vosk
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre precise-lite-runner
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install wallpaper-finder
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-skill-installer
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install precise-lite-runner
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install neon-mana-utils
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install sdnotify
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install timezonefinder
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install huggingface_hub
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install tokenizers
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install ctranslate2
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install tiktoken
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install ffmpeg-python
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install feedparser
+
 
       - uses: actions/checkout@v3
         with:

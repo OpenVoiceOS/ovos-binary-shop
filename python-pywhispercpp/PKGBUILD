@@ -3,28 +3,27 @@
 export PIP_CONFIG_FILE=/dev/null
 export PIP_DISABLE_PIP_VERSION_CHECK=true
 
-pkgname=python-ovos-phal
+pkgname=python-pywhispercpp
 epoch=
-pkgver=0.0.5a4
+pkgver=1.0.8
 pkgrel=00
-pkgdesc='Plugin based Hardware Abstraction Layer for OVOS'
+pkgdesc='Python bindings for whisper.cpp'
 arch=(any)
-url=https://github.com/OpenVoiceOS/ovos-PHAL
-license=(custom:apache-2.0)
-depends=(python python-ovos-bus-client python-ovos-config python-ovos-phal-plugin-color-scheme-manager python-ovos-phal-plugin-connectivity-events python-ovos-phal-plugin-ipgeo python-ovos-phal-plugin-network-manager python-ovos-phal-plugin-oauth python-ovos-phal-plugin-system python-ovos-phal-plugin-wallpaper-manager python-ovos-plugin-manager python-ovos-utils python-ovos-workshop)
+url=https://pypi.org/project/pywhispercpp/
+license=(custom:MIT)
+depends=(python python-numpy python-platformdirs python-pydub python-requests python-tqdm)
 ## EXTRA_DEPENDS ##
-makedepends=(python-pip)
+makedepends=()
 checkdepends=()
 provides=()
 conflicts=(${provides%=*})  # No quotes, to avoid an empty entry.
 source=(PKGBUILD_EXTRAS)
 md5sums=(SKIP)
 noextract=()
-source+=(https://files.pythonhosted.org/packages/df/4e/4edd27620fedccc22ade0aa78981ff83974783930ef67d756874101ec1ac/ovos_PHAL-0.0.5a4-py3-none-any.whl)
-md5sums+=(ca8437f14421ec4dac2d20330fc80f73)
-noextract+=(ovos_PHAL-0.0.5a4-py3-none-any.whl)
+source+=(https://files.pythonhosted.org/packages/aa/1a/1b7ba071dbcefec6e100cf022b1599345bbcc8460761bead85e0c4ebce21/pywhispercpp-1.0.8.tar.gz)
+md5sums+=(8249127f68cb4557ef771dfe9e420cef)
 source+=(LICENSE)
-md5sums+=(f8e21961459543cbb99d684336cca043)
+md5sums+=(e754cf23de2b7c315f041657b02ec9f4)
 
 _first_source() {
     echo " ${source_i686[@]} ${source_x86_64[@]} ${source[@]}" |
@@ -114,8 +113,12 @@ _package() {
         --no-deps --ignore-installed --no-warn-script-location \
         "$(ls ./*.whl 2>/dev/null || echo ./"$(_dist_name)")"
     if [[ -d "$pkgdir/usr/bin" ]]; then  # Fix entry points.
+        python="#!$(readlink -f _tmpenv)/bin/python"
         for f in "$pkgdir/usr/bin/"*; do
-            if [[ $(head -n1 "$f") = "#!$(readlink -f _tmpenv)/bin/python" ]]; then
+            # Like [[ "$(head -n1 "$f")" = "#!$(readlink -f _tmpenv)/bin/python" ]]
+            # but without bash warning on null bytes in "$f" (if it is actually
+            # a compiled executable, not an entry point).
+            if python -c 'import os, sys; sys.exit(not open(sys.argv[1], "rb").read().startswith(os.fsencode(sys.argv[2]) + b"\n"))' "$f" "$python"; then
                 sed -i '1c#!/usr/bin/python' "$f"
             fi
         done

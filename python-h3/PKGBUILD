@@ -3,28 +3,27 @@
 export PIP_CONFIG_FILE=/dev/null
 export PIP_DISABLE_PIP_VERSION_CHECK=true
 
-pkgname=python-ovos-phal
+pkgname=python-h3
 epoch=
-pkgver=0.0.5a4
+pkgver=3.7.6
 pkgrel=00
-pkgdesc='Plugin based Hardware Abstraction Layer for OVOS'
+pkgdesc='Hierarchical hexagonal geospatial indexing system'
 arch=(any)
-url=https://github.com/OpenVoiceOS/ovos-PHAL
-license=(custom:apache-2.0)
-depends=(python python-ovos-bus-client python-ovos-config python-ovos-phal-plugin-color-scheme-manager python-ovos-phal-plugin-connectivity-events python-ovos-phal-plugin-ipgeo python-ovos-phal-plugin-network-manager python-ovos-phal-plugin-oauth python-ovos-phal-plugin-system python-ovos-phal-plugin-wallpaper-manager python-ovos-plugin-manager python-ovos-utils python-ovos-workshop)
-## EXTRA_DEPENDS ##
-makedepends=(python-pip)
+url=https://github.com/uber/h3-py
+license=(Apache)
+depends=(python )
+depends+=(python-numpy)
+makedepends=(cython)
 checkdepends=()
 provides=()
 conflicts=(${provides%=*})  # No quotes, to avoid an empty entry.
 source=(PKGBUILD_EXTRAS)
 md5sums=(SKIP)
 noextract=()
-source+=(https://files.pythonhosted.org/packages/df/4e/4edd27620fedccc22ade0aa78981ff83974783930ef67d756874101ec1ac/ovos_PHAL-0.0.5a4-py3-none-any.whl)
-md5sums+=(ca8437f14421ec4dac2d20330fc80f73)
-noextract+=(ovos_PHAL-0.0.5a4-py3-none-any.whl)
+source+=(https://files.pythonhosted.org/packages/0e/92/30070479f7c41d66dc5f0ac44298eaedf4a7dad722348dac82d6dcc7ddd8/h3-3.7.6.tar.gz)
+md5sums+=(fa7a1039356953d5773c22dbeeed0aa1)
 source+=(LICENSE)
-md5sums+=(f8e21961459543cbb99d684336cca043)
+md5sums+=(3b83ef96387f14655fc854ddc3c6bd57)
 
 _first_source() {
     echo " ${source_i686[@]} ${source_x86_64[@]} ${source[@]}" |
@@ -114,8 +113,12 @@ _package() {
         --no-deps --ignore-installed --no-warn-script-location \
         "$(ls ./*.whl 2>/dev/null || echo ./"$(_dist_name)")"
     if [[ -d "$pkgdir/usr/bin" ]]; then  # Fix entry points.
+        python="#!$(readlink -f _tmpenv)/bin/python"
         for f in "$pkgdir/usr/bin/"*; do
-            if [[ $(head -n1 "$f") = "#!$(readlink -f _tmpenv)/bin/python" ]]; then
+            # Like [[ "$(head -n1 "$f")" = "#!$(readlink -f _tmpenv)/bin/python" ]]
+            # but without bash warning on null bytes in "$f" (if it is actually
+            # a compiled executable, not an entry point).
+            if python -c 'import os, sys; sys.exit(not open(sys.argv[1], "rb").read().startswith(os.fsencode(sys.argv[2]) + b"\n"))' "$f" "$python"; then
                 sed -i '1c#!/usr/bin/python' "$f"
             fi
         done
