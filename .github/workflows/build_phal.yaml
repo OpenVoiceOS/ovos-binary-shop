@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Install build Dependencies
         run: |
-          sudo pacman --noconfirm --needed -Sy pkgfile namcap python-pip git swig cython base-devel cargo fann ninja python-google-api-core python-setuptools python-wheel pkgconf
+          sudo pacman --noconfirm --needed -Sy pkgfile namcap python-pip git swig cython base-devel cargo gcc-fortran fann ninja python-google-api-core python-setuptools python-wheel pkgconf
           pip install git+https://github.com/anntzer/pypi2pkgbuild
           pkgfile --update
       - name: gen PKGBUILDS
