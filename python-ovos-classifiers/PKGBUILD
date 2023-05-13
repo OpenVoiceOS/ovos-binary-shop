@@ -5,14 +5,14 @@ export PIP_DISABLE_PIP_VERSION_CHECK=true
 
 pkgname=python-ovos-classifiers
 epoch=
-pkgver=0.0.0a9
+pkgver=0.0.0a12
 pkgrel=00
 pkgdesc=''
 arch=(any)
 url=https://github.com/OpenVoiceOS/ovos-classifiers
 license=(Apache)
 depends=(python python-joblib python-nltk python-ovos-utils python-dateutil)
-depends+=(python-ovos-plugin-manager python-ovos-config python-numpy python-quebra-frases)
+depends+=(python-requests)
 makedepends=()
 checkdepends=()
 provides=()
@@ -20,9 +20,9 @@ conflicts=(${provides%=*})  # No quotes, to avoid an empty entry.
 source=(PKGBUILD_EXTRAS)
 md5sums=(SKIP)
 noextract=()
-source+=(https://files.pythonhosted.org/packages/de/c2/a7611d4080a75efee622171a47f6d2c86828139a54f8559166765f73f7de/ovos_classifiers-0.0.0a9-py3-none-any.whl)
-md5sums+=(f8f5003c3062875c72f7d098fa42749b)
-noextract+=(ovos_classifiers-0.0.0a9-py3-none-any.whl)
+source+=(https://files.pythonhosted.org/packages/dc/76/1a57d06edf4a3ab4aeee8cb29e90d9a4a151945de7eaaec4ec64164bf8ea/ovos_classifiers-0.0.0a12-py3-none-any.whl)
+md5sums+=(854a7fcec8f1feb5612ad39b2b7d9784)
+noextract+=(ovos_classifiers-0.0.0a12-py3-none-any.whl)
 source+=(LICENSE)
 md5sums+=(a5c534c0b0d5eb7b11a937c909109c2c)
 

@@ -5,7 +5,6 @@ pkgbase = python-markdown-it-py
 	url = https://pypi.org/project/markdown-it-py/
 	arch = any
 	license = MIT
-	makedepends = python-pip
 	depends = python
 	depends = python-mdurl
 	depends = python-typing_extensions

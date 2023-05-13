@@ -5,23 +5,23 @@ export PIP_DISABLE_PIP_VERSION_CHECK=true
 
 pkgname=python-rapidfuzz
 epoch=
-pkgver=2.15.1
+pkgver=3.0.0
 pkgrel=00
 pkgdesc='rapid fuzzy string matching'
-arch=(any)
+arch=(x86_64)
 url=https://github.com/maxbachmann/RapidFuzz
 license=(MIT)
 depends=(python )
-## EXTRA_DEPENDS ##
-makedepends=(python-pip python-wheel cython)
+depends+=()
+makedepends=(cython)
 checkdepends=()
 provides=()
 conflicts=(${provides%=*})  # No quotes, to avoid an empty entry.
 source=(PKGBUILD_EXTRAS)
 md5sums=(SKIP)
 noextract=()
-source+=(https://files.pythonhosted.org/packages/44/19/a20bd17379cca3e0a63590a6473ecf6cdaa8351688de775afefffc701a79/rapidfuzz-2.15.1.tar.gz)
-md5sums+=(c9481713854441b6c2f6ed930f427e7c)
+source+=(https://files.pythonhosted.org/packages/70/05/4030a8a7aa42d3e40ba7abf902de8e7e94ddcb61abda23f6a3ec5daf36df/rapidfuzz-3.0.0.tar.gz)
+md5sums+=(d3c6390b0254476bf68e0e87eec17e70)
 source+=(LICENSE)
 md5sums+=(dcd1023081943827dd63f01dc3fda218)
 
@@ -113,8 +113,12 @@ _package() {
         --no-deps --ignore-installed --no-warn-script-location \
         "$(ls ./*.whl 2>/dev/null || echo ./"$(_dist_name)")"
     if [[ -d "$pkgdir/usr/bin" ]]; then  # Fix entry points.
+        python="#!$(readlink -f _tmpenv)/bin/python"
         for f in "$pkgdir/usr/bin/"*; do
-            if [[ $(head -n1 "$f") = "#!$(readlink -f _tmpenv)/bin/python" ]]; then
+            # Like [[ "$(head -n1 "$f")" = "#!$(readlink -f _tmpenv)/bin/python" ]]
+            # but without bash warning on null bytes in "$f" (if it is actually
+            # a compiled executable, not an entry point).
+            if python -c 'import os, sys; sys.exit(not open(sys.argv[1], "rb").read().startswith(os.fsencode(sys.argv[2]) + b"\n"))' "$f" "$python"; then
                 sed -i '1c#!/usr/bin/python' "$f"
             fi
         done

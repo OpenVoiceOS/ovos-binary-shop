@@ -5,7 +5,6 @@ pkgbase = python-webcolors
 	url = https://pypi.org/project/webcolors/
 	arch = any
 	license = BSD
-	makedepends = python-pip
 	depends = python
 	noextract = webcolors-1.13-py3-none-any.whl
 	source = PKGBUILD_EXTRAS

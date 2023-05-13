@@ -5,7 +5,7 @@ export PIP_DISABLE_PIP_VERSION_CHECK=true
 
 pkgname=python-ovos-plugin-manager
 epoch=
-pkgver=0.0.23a9
+pkgver=0.0.23a14
 pkgrel=00
 pkgdesc='OpenVoiceOS plugin manager'
 arch=(any)
@@ -13,16 +13,16 @@ url=https://github.com/OpenVoiceOS/OVOS-plugin-manager
 license=(custom:Apache-2.0)
 depends=(python python-combo-lock python-importlib-metadata python-langcodes python-ovos-bus-client python-ovos-config python-ovos-utils python-quebra-frases python-requests)
 depends+=(python-setuptools)
-makedepends=(python-pip)
+makedepends=()
 checkdepends=()
 provides=()
 conflicts=(${provides%=*})  # No quotes, to avoid an empty entry.
 source=(PKGBUILD_EXTRAS)
 md5sums=(SKIP)
 noextract=()
-source+=(https://files.pythonhosted.org/packages/5e/65/b0017fac3f49a008259f368eb7521910c7eb5c0e35a9936737679103ec24/ovos_plugin_manager-0.0.23a9-py3-none-any.whl)
-md5sums+=(0a41e467bc64758e86a3972e1f9c665a)
-noextract+=(ovos_plugin_manager-0.0.23a9-py3-none-any.whl)
+source+=(https://files.pythonhosted.org/packages/8c/16/d8a9447ffd6c1ee2f5125c470886f044993aff9f9fd67007d03dbd8a8083/ovos_plugin_manager-0.0.23a14-py3-none-any.whl)
+md5sums+=(4722652890518e4b62e1d46067cc7592)
+noextract+=(ovos_plugin_manager-0.0.23a14-py3-none-any.whl)
 source+=(LICENSE)
 md5sums+=(045edd5501b7c33e6848b421aa2d9e1e)
 
@@ -114,8 +114,12 @@ _package() {
         --no-deps --ignore-installed --no-warn-script-location \
         "$(ls ./*.whl 2>/dev/null || echo ./"$(_dist_name)")"
     if [[ -d "$pkgdir/usr/bin" ]]; then  # Fix entry points.
+        python="#!$(readlink -f _tmpenv)/bin/python"
         for f in "$pkgdir/usr/bin/"*; do
-            if [[ $(head -n1 "$f") = "#!$(readlink -f _tmpenv)/bin/python" ]]; then
+            # Like [[ "$(head -n1 "$f")" = "#!$(readlink -f _tmpenv)/bin/python" ]]
+            # but without bash warning on null bytes in "$f" (if it is actually
+            # a compiled executable, not an entry point).
+            if python -c 'import os, sys; sys.exit(not open(sys.argv[1], "rb").read().startswith(os.fsencode(sys.argv[2]) + b"\n"))' "$f" "$python"; then
                 sed -i '1c#!/usr/bin/python' "$f"
             fi
         done

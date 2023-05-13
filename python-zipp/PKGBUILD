@@ -13,7 +13,7 @@ url=https://github.com/jaraco/zipp
 license=(MIT)
 depends=(python )
 ## EXTRA_DEPENDS ##
-makedepends=(python-pip)
+makedepends=()
 checkdepends=()
 provides=()
 conflicts=(${provides%=*})  # No quotes, to avoid an empty entry.
@@ -24,7 +24,7 @@ source+=(https://files.pythonhosted.org/packages/5b/fa/c9e82bbe1af6266adf08afb56
 md5sums+=(7c135a41b74b0ae8a5d67b665f4facdf)
 noextract+=(zipp-3.15.0-py3-none-any.whl)
 source+=(LICENSE)
-md5sums+=(7a7126e068206290f3fe9f8d6c713ea6)
+md5sums+=(141643e11c48898150daa83802dbc65f)
 
 _first_source() {
     echo " ${source_i686[@]} ${source_x86_64[@]} ${source[@]}" |
@@ -114,8 +114,12 @@ _package() {
         --no-deps --ignore-installed --no-warn-script-location \
         "$(ls ./*.whl 2>/dev/null || echo ./"$(_dist_name)")"
     if [[ -d "$pkgdir/usr/bin" ]]; then  # Fix entry points.
+        python="#!$(readlink -f _tmpenv)/bin/python"
         for f in "$pkgdir/usr/bin/"*; do
-            if [[ $(head -n1 "$f") = "#!$(readlink -f _tmpenv)/bin/python" ]]; then
+            # Like [[ "$(head -n1 "$f")" = "#!$(readlink -f _tmpenv)/bin/python" ]]
+            # but without bash warning on null bytes in "$f" (if it is actually
+            # a compiled executable, not an entry point).
+            if python -c 'import os, sys; sys.exit(not open(sys.argv[1], "rb").read().startswith(os.fsencode(sys.argv[2]) + b"\n"))' "$f" "$python"; then
                 sed -i '1c#!/usr/bin/python' "$f"
             fi
         done

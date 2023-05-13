@@ -5,7 +5,6 @@ pkgbase = python-memory-tempfile
 	url = https://github.com/mbello/memory-tempfile
 	arch = any
 	license = MIT
-	makedepends = python-pip
 	depends = python
 	noextract = memory_tempfile-2.2.3-py3-none-any.whl
 	source = PKGBUILD_EXTRAS

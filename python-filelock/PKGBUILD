@@ -3,16 +3,16 @@
 export PIP_CONFIG_FILE=/dev/null
 export PIP_DISABLE_PIP_VERSION_CHECK=true
 
-pkgname=python-langcodes
+pkgname=python-filelock
 epoch=
-pkgver=3.3.0
+pkgver=3.12.0
 pkgrel=00
-pkgdesc='Tools for labeling human languages with IETF language tags'
+pkgdesc='A platform independent file lock.'
 arch=(any)
-url=https://github.com/rspeer/langcodes
-license=(MIT)
+url=https://pypi.org/project/filelock/
+license=('custom:The Unlicense (Unlicense)')
 depends=(python )
-depends+=(python-setuptools)
+## EXTRA_DEPENDS ##
 makedepends=()
 checkdepends=()
 provides=()
@@ -20,11 +20,11 @@ conflicts=(${provides%=*})  # No quotes, to avoid an empty entry.
 source=(PKGBUILD_EXTRAS)
 md5sums=(SKIP)
 noextract=()
-source+=(https://files.pythonhosted.org/packages/fe/c3/0d04d248624a181e57c2870127dfa8d371973561caf54333c85e8f9133a2/langcodes-3.3.0-py3-none-any.whl)
-md5sums+=(819c9de0949070768723967a98aba655)
-noextract+=(langcodes-3.3.0-py3-none-any.whl)
+source+=(https://files.pythonhosted.org/packages/ad/73/b094a662ae05cdc4ec95bc54e434e307986a5de5960166b8161b7c1373ee/filelock-3.12.0-py3-none-any.whl)
+md5sums+=(f394d5946c05f55cee9b80fcec40b549)
+noextract+=(filelock-3.12.0-py3-none-any.whl)
 source+=(LICENSE)
-md5sums+=(0c3795648deb81e3b4136bdeee03f070)
+md5sums+=(911690f51af322440237a253d695d19f)
 
 _first_source() {
     echo " ${source_i686[@]} ${source_x86_64[@]} ${source[@]}" |

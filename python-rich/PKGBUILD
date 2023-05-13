@@ -5,24 +5,24 @@ export PIP_DISABLE_PIP_VERSION_CHECK=true
 
 pkgname=python-rich
 epoch=
-pkgver=13.3.4
+pkgver=13.3.5
 pkgrel=00
 pkgdesc='Render rich text, tables, progress bars, syntax highlighting, markdown and more to the terminal'
 arch=(any)
 url=https://github.com/Textualize/rich
 license=(MIT)
 depends=(python python-markdown-it-py python-pygments)
-depends+=(python-attrs python-typing_extensions)
-makedepends=(python-pip)
+depends+=(python-typing_extensions python-attrs)
+makedepends=()
 checkdepends=()
 provides=()
 conflicts=(${provides%=*})  # No quotes, to avoid an empty entry.
 source=(PKGBUILD_EXTRAS)
 md5sums=(SKIP)
 noextract=()
-source+=(https://files.pythonhosted.org/packages/9d/1a/28117ae737aec7c004ed5067034a8949adab43730420b50312821f466c3f/rich-13.3.4-py3-none-any.whl)
-md5sums+=(b9fb90b20a376c51faf39419b92cacb7)
-noextract+=(rich-13.3.4-py3-none-any.whl)
+source+=(https://files.pythonhosted.org/packages/39/03/6de23bdd88f5ee7f8b03f94f6e88108f5d7ffe6d207e95cdb06d9aa4cd57/rich-13.3.5-py3-none-any.whl)
+md5sums+=(d25ebdbecb10104b29bbdab5eec1570e)
+noextract+=(rich-13.3.5-py3-none-any.whl)
 source+=(LICENSE)
 md5sums+=(b5f0b94fbc94f5ad9ae4efcf8a778303)
 
@@ -114,8 +114,12 @@ _package() {
         --no-deps --ignore-installed --no-warn-script-location \
         "$(ls ./*.whl 2>/dev/null || echo ./"$(_dist_name)")"
     if [[ -d "$pkgdir/usr/bin" ]]; then  # Fix entry points.
+        python="#!$(readlink -f _tmpenv)/bin/python"
         for f in "$pkgdir/usr/bin/"*; do
-            if [[ $(head -n1 "$f") = "#!$(readlink -f _tmpenv)/bin/python" ]]; then
+            # Like [[ "$(head -n1 "$f")" = "#!$(readlink -f _tmpenv)/bin/python" ]]
+            # but without bash warning on null bytes in "$f" (if it is actually
+            # a compiled executable, not an entry point).
+            if python -c 'import os, sys; sys.exit(not open(sys.argv[1], "rb").read().startswith(os.fsencode(sys.argv[2]) + b"\n"))' "$f" "$python"; then
                 sed -i '1c#!/usr/bin/python' "$f"
             fi
         done

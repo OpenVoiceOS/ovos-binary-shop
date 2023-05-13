@@ -5,24 +5,23 @@ export PIP_DISABLE_PIP_VERSION_CHECK=true
 
 pkgname=python-ovos-gui
 epoch=
-pkgver=0.0.2a10
+pkgver=0.0.3.post1
 pkgrel=00
 pkgdesc='ovos-core gui service daemon'
 arch=(any)
 url=https://github.com/OpenVoiceOS/ovos-gui
 license=(custom:Apache-2.0)
-depends=(python python-ovos-bus-client python-ovos-config python-ovos-utils python-tornado)
+depends=(python python-ovos-backend-client python-ovos-bus-client python-ovos-config python-ovos-utils python-tornado)
 ## EXTRA_DEPENDS ##
-makedepends=(python-pip)
+makedepends=()
 checkdepends=()
 provides=()
 conflicts=(${provides%=*})  # No quotes, to avoid an empty entry.
 source=(PKGBUILD_EXTRAS)
 md5sums=(SKIP)
 noextract=()
-source+=(https://files.pythonhosted.org/packages/32/89/54c2f892fd56cae8615b17912b7e949c4e746d1c895d53039df45c4bd003/ovos_gui-0.0.2a10-py3-none-any.whl)
-md5sums+=(70dc9caed523d886132c08e16556e47f)
-noextract+=(ovos_gui-0.0.2a10-py3-none-any.whl)
+source+=(https://files.pythonhosted.org/packages/81/3e/cbabdd6ac7267dbfd08aea081e7329eb3c6e365c67f6e23290a6542d9b54/ovos-gui-0.0.3.post1.tar.gz)
+md5sums+=(8e2a4bf38193b55a6671b892550759a9)
 source+=(LICENSE)
 md5sums+=(d58e539155262e617b64b12018014cf6)
 
@@ -114,8 +113,12 @@ _package() {
         --no-deps --ignore-installed --no-warn-script-location \
         "$(ls ./*.whl 2>/dev/null || echo ./"$(_dist_name)")"
     if [[ -d "$pkgdir/usr/bin" ]]; then  # Fix entry points.
+        python="#!$(readlink -f _tmpenv)/bin/python"
         for f in "$pkgdir/usr/bin/"*; do
-            if [[ $(head -n1 "$f") = "#!$(readlink -f _tmpenv)/bin/python" ]]; then
+            # Like [[ "$(head -n1 "$f")" = "#!$(readlink -f _tmpenv)/bin/python" ]]
+            # but without bash warning on null bytes in "$f" (if it is actually
+            # a compiled executable, not an entry point).
+            if python -c 'import os, sys; sys.exit(not open(sys.argv[1], "rb").read().startswith(os.fsencode(sys.argv[2]) + b"\n"))' "$f" "$python"; then
                 sed -i '1c#!/usr/bin/python' "$f"
             fi
         done

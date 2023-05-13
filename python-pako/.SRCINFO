@@ -5,7 +5,6 @@ pkgbase = python-pako
 	url = https://github.com/MycroftAI/pako
 	arch = any
 	license = Apache
-	makedepends = python-pip
 	depends = python
 	depends = python-appdirs
 	noextract = pako-0.3.1-py3-none-any.whl

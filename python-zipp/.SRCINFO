@@ -5,7 +5,6 @@ pkgbase = python-zipp
 	url = https://github.com/jaraco/zipp
 	arch = any
 	license = MIT
-	makedepends = python-pip
 	depends = python
 	noextract = zipp-3.15.0-py3-none-any.whl
 	source = PKGBUILD_EXTRAS
@@ -13,6 +12,6 @@ pkgbase = python-zipp
 	source = LICENSE
 	md5sums = SKIP
 	md5sums = 7c135a41b74b0ae8a5d67b665f4facdf
-	md5sums = 7a7126e068206290f3fe9f8d6c713ea6
+	md5sums = 141643e11c48898150daa83802dbc65f
 
 pkgname = python-zipp

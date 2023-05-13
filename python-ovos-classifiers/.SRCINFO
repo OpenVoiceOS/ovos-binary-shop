@@ -1,0 +1,21 @@
+pkgbase = python-ovos-classifiers
+	pkgver = 0.0.0a12
+	pkgrel = 00
+	url = https://github.com/OpenVoiceOS/ovos-classifiers
+	arch = any
+	license = Apache
+	depends = python
+	depends = python-joblib
+	depends = python-nltk
+	depends = python-ovos-utils
+	depends = python-dateutil
+	depends = python-requests
+	noextract = ovos_classifiers-0.0.0a12-py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/dc/76/1a57d06edf4a3ab4aeee8cb29e90d9a4a151945de7eaaec4ec64164bf8ea/ovos_classifiers-0.0.0a12-py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 854a7fcec8f1feb5612ad39b2b7d9784
+	md5sums = a5c534c0b0d5eb7b11a937c909109c2c
+
+pkgname = python-ovos-classifiers

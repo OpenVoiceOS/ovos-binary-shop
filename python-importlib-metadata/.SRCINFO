@@ -1,20 +1,19 @@
 pkgbase = python-importlib-metadata
 	pkgdesc = Read metadata from Python packages
-	pkgver = 6.3.0
+	pkgver = 6.6.0
 	pkgrel = 00
 	url = https://github.com/python/importlib_metadata
 	arch = any
 	license = Apache
-	makedepends = python-pip
 	depends = python
 	depends = python-zipp
 	depends = python-typing_extensions
-	noextract = importlib_metadata-6.3.0-py3-none-any.whl
+	noextract = importlib_metadata-6.6.0-py3-none-any.whl
 	source = PKGBUILD_EXTRAS
-	source = https://files.pythonhosted.org/packages/af/15/544ee37359dd4d8e490d1846062015f9d7d59b0f11e2e8e629917608e592/importlib_metadata-6.3.0-py3-none-any.whl
+	source = https://files.pythonhosted.org/packages/30/bb/bf2944b8b88c65b797acc2c6a2cb0fb817f7364debf0675792e034013858/importlib_metadata-6.6.0-py3-none-any.whl
 	source = LICENSE
 	md5sums = SKIP
-	md5sums = fa927011905878792c54886f35e59bca
+	md5sums = abba21ad7b5a1021ce02009a33737d30
 	md5sums = 3b83ef96387f14655fc854ddc3c6bd57
 
 pkgname = python-importlib-metadata

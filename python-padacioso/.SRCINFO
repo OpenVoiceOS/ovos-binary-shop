@@ -1,19 +1,18 @@
 pkgbase = python-padacioso
 	pkgdesc = dead simple intent parser
-	pkgver = 0.1.2
+	pkgver = 0.2.1a2
 	pkgrel = 00
-	url = https://github.com/OpenJarbas/padacioso
+	url = https://github.com/OpenVoiceOS/padacioso
 	arch = any
 	license = custom:apache-2.0
-	makedepends = python-pip
-	makedepends = python-wheel
 	depends = python
 	depends = python-simplematch
+	noextract = padacioso-0.2.1a2-py3-none-any.whl
 	source = PKGBUILD_EXTRAS
-	source = https://files.pythonhosted.org/packages/27/a2/eab4eff46b37c7bd9072159725aae91c23999a505f8e186150e68d7e80f8/padacioso-0.1.2.tar.gz
+	source = https://files.pythonhosted.org/packages/2a/ae/4b3358a8179221cd9f08638f4e2c29bbf37982d347249dece06973f99af5/padacioso-0.2.1a2-py3-none-any.whl
 	source = LICENSE
 	md5sums = SKIP
-	md5sums = a9ac6154621d36f0091fe6108a945c3b
+	md5sums = db3c2d59c6c426a5d3ee401d5c5b0704
 	md5sums = ffb93058331cc7f50f76179423b9c219
 
 pkgname = python-padacioso

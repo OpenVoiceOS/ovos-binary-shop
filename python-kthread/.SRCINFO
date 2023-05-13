@@ -5,7 +5,6 @@ pkgbase = python-kthread
 	url = https://github.com/munshigroup/kthread
 	arch = any
 	license = MIT
-	makedepends = python-pip
 	depends = python
 	noextract = kthread-0.2.3-py3-none-any.whl
 	source = PKGBUILD_EXTRAS

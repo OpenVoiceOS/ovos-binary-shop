@@ -5,7 +5,7 @@ export PIP_DISABLE_PIP_VERSION_CHECK=true
 
 pkgname=python-pyee
 epoch=
-pkgver=9.0.4
+pkgver=9.1.0
 pkgrel=00
 pkgdesc='A port of node.js'"'"'s EventEmitter to python.'
 arch=(any)
@@ -13,16 +13,16 @@ url=https://github.com/jfhbrook/pyee
 license=(MIT)
 depends=(python python-typing_extensions)
 ## EXTRA_DEPENDS ##
-makedepends=(python-pip)
+makedepends=()
 checkdepends=()
 provides=()
 conflicts=(${provides%=*})  # No quotes, to avoid an empty entry.
 source=(PKGBUILD_EXTRAS)
 md5sums=(SKIP)
 noextract=()
-source+=(https://files.pythonhosted.org/packages/c7/54/10695d113f03688d79d24bbd7eca30b0e386cbc6d2743ffb68dcae131bf6/pyee-9.0.4-py2.py3-none-any.whl)
-md5sums+=(617259dbf5d7da2524852319b2f2c6d0)
-noextract+=(pyee-9.0.4-py2.py3-none-any.whl)
+source+=(https://files.pythonhosted.org/packages/f5/73/3274bdf259d6f7e1f6fdae72efe4f9d3841c5ed97b7ac80b2f09f521423a/pyee-9.1.0-py2.py3-none-any.whl)
+md5sums+=(3593137f2d93b19c01082add8e368594)
+noextract+=(pyee-9.1.0-py2.py3-none-any.whl)
 source+=(LICENSE)
 md5sums+=(c2e10c89324b62c43b1b240b2c70dbda)
 
@@ -114,8 +114,12 @@ _package() {
         --no-deps --ignore-installed --no-warn-script-location \
         "$(ls ./*.whl 2>/dev/null || echo ./"$(_dist_name)")"
     if [[ -d "$pkgdir/usr/bin" ]]; then  # Fix entry points.
+        python="#!$(readlink -f _tmpenv)/bin/python"
         for f in "$pkgdir/usr/bin/"*; do
-            if [[ $(head -n1 "$f") = "#!$(readlink -f _tmpenv)/bin/python" ]]; then
+            # Like [[ "$(head -n1 "$f")" = "#!$(readlink -f _tmpenv)/bin/python" ]]
+            # but without bash warning on null bytes in "$f" (if it is actually
+            # a compiled executable, not an entry point).
+            if python -c 'import os, sys; sys.exit(not open(sys.argv[1], "rb").read().startswith(os.fsencode(sys.argv[2]) + b"\n"))' "$f" "$python"; then
                 sed -i '1c#!/usr/bin/python' "$f"
             fi
         done

@@ -1,22 +1,21 @@
 pkgbase = python-ovos-gui
 	pkgdesc = ovos-core gui service daemon
-	pkgver = 0.0.2a10
+	pkgver = 0.0.3.post1
 	pkgrel = 00
 	url = https://github.com/OpenVoiceOS/ovos-gui
 	arch = any
 	license = custom:Apache-2.0
-	makedepends = python-pip
 	depends = python
+	depends = python-ovos-backend-client
 	depends = python-ovos-bus-client
 	depends = python-ovos-config
 	depends = python-ovos-utils
 	depends = python-tornado
-	noextract = ovos_gui-0.0.2a10-py3-none-any.whl
 	source = PKGBUILD_EXTRAS
-	source = https://files.pythonhosted.org/packages/32/89/54c2f892fd56cae8615b17912b7e949c4e746d1c895d53039df45c4bd003/ovos_gui-0.0.2a10-py3-none-any.whl
+	source = https://files.pythonhosted.org/packages/81/3e/cbabdd6ac7267dbfd08aea081e7329eb3c6e365c67f6e23290a6542d9b54/ovos-gui-0.0.3.post1.tar.gz
 	source = LICENSE
 	md5sums = SKIP
-	md5sums = 70dc9caed523d886132c08e16556e47f
+	md5sums = 8e2a4bf38193b55a6671b892550759a9
 	md5sums = d58e539155262e617b64b12018014cf6
 
 pkgname = python-ovos-gui

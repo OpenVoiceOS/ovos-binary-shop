@@ -5,7 +5,6 @@ pkgbase = python-langcodes
 	url = https://github.com/rspeer/langcodes
 	arch = any
 	license = MIT
-	makedepends = python-pip
 	depends = python
 	depends = python-setuptools
 	noextract = langcodes-3.3.0-py3-none-any.whl

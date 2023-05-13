@@ -5,7 +5,6 @@ pkgbase = python-cattrs
 	url = https://github.com/python-attrs/cattrs
 	arch = any
 	license = MIT
-	makedepends = python-pip
 	depends = python
 	depends = python-attrs
 	depends = python-exceptiongroup

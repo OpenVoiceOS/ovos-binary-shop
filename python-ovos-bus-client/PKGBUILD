@@ -5,7 +5,7 @@ export PIP_DISABLE_PIP_VERSION_CHECK=true
 
 pkgname=python-ovos-bus-client
 epoch=
-pkgver=0.0.3a19
+pkgver=0.0.4a10
 pkgrel=00
 pkgdesc='OVOS Messagebus Client'
 arch=(any)
@@ -13,16 +13,16 @@ url=https://github.com/OpenVoiceOS/ovos-bus-client
 license=(Apache)
 depends=(python python-ovos-config python-ovos-utils python-pyee python-websocket-client)
 ## EXTRA_DEPENDS ##
-makedepends=(python-pip)
+makedepends=()
 checkdepends=()
 provides=()
 conflicts=(${provides%=*})  # No quotes, to avoid an empty entry.
 source=(PKGBUILD_EXTRAS)
 md5sums=(SKIP)
 noextract=()
-source+=(https://files.pythonhosted.org/packages/19/92/3e3fff356f61effc101ae393a961da3096708d5775439bf1f0c99b51de49/ovos_bus_client-0.0.3a19-py3-none-any.whl)
-md5sums+=(9a25bf5e1715a8177820b2b688c376ae)
-noextract+=(ovos_bus_client-0.0.3a19-py3-none-any.whl)
+source+=(https://files.pythonhosted.org/packages/5d/02/5231da3e323a3dc885efd791109c219b8964d0f0e9a11fc9d3d0dbcd5b21/ovos_bus_client-0.0.4a10-py3-none-any.whl)
+md5sums+=(e99dd54ed6f763d2ff1389537a56b7c1)
+noextract+=(ovos_bus_client-0.0.4a10-py3-none-any.whl)
 source+=(LICENSE)
 md5sums+=(a5c534c0b0d5eb7b11a937c909109c2c)
 
@@ -114,8 +114,12 @@ _package() {
         --no-deps --ignore-installed --no-warn-script-location \
         "$(ls ./*.whl 2>/dev/null || echo ./"$(_dist_name)")"
     if [[ -d "$pkgdir/usr/bin" ]]; then  # Fix entry points.
+        python="#!$(readlink -f _tmpenv)/bin/python"
         for f in "$pkgdir/usr/bin/"*; do
-            if [[ $(head -n1 "$f") = "#!$(readlink -f _tmpenv)/bin/python" ]]; then
+            # Like [[ "$(head -n1 "$f")" = "#!$(readlink -f _tmpenv)/bin/python" ]]
+            # but without bash warning on null bytes in "$f" (if it is actually
+            # a compiled executable, not an entry point).
+            if python -c 'import os, sys; sys.exit(not open(sys.argv[1], "rb").read().startswith(os.fsencode(sys.argv[2]) + b"\n"))' "$f" "$python"; then
                 sed -i '1c#!/usr/bin/python' "$f"
             fi
         done

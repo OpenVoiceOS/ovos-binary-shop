@@ -5,7 +5,6 @@ pkgbase = python-url-normalize
 	url = https://github.com/niksite/url-normalize
 	arch = any
 	license = MIT
-	makedepends = python-pip
 	depends = python
 	depends = python-six
 	noextract = url_normalize-1.4.3-py2.py3-none-any.whl

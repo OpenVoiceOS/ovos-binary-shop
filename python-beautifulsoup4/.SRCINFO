@@ -5,7 +5,6 @@ pkgbase = python-beautifulsoup4
 	url = https://pypi.org/project/beautifulsoup4/
 	arch = any
 	license = MIT
-	makedepends = python-pip
 	depends = python
 	depends = python-soupsieve
 	depends = python-chardet

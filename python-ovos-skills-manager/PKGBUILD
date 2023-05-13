@@ -11,9 +11,9 @@ pkgdesc='Open Voice OS skill manager'
 arch=(any)
 url=https://github.com/OpenVoiceOS/ovos_skill_manager
 license=(custom:Apache-2.0)
-depends=(python python-bs4 python-click python-click-default-group python-combo-lock python-json-database python-ovos-config python-ovos-skill-installer python-ovos-utils python-packaging python-pako python-pyyaml python-requests python-requests-cache)
+depends=(python python-bs4 python-click python-click-default-group python-combo-lock python-json-database python-ovos-config python-ovos-skill-installer python-ovos-utils python-packaging python-pako python-yaml python-requests python-requests-cache)
 ## EXTRA_DEPENDS ##
-makedepends=(python-pip)
+makedepends=()
 checkdepends=()
 provides=()
 conflicts=(${provides%=*})  # No quotes, to avoid an empty entry.
@@ -114,8 +114,12 @@ _package() {
         --no-deps --ignore-installed --no-warn-script-location \
         "$(ls ./*.whl 2>/dev/null || echo ./"$(_dist_name)")"
     if [[ -d "$pkgdir/usr/bin" ]]; then  # Fix entry points.
+        python="#!$(readlink -f _tmpenv)/bin/python"
         for f in "$pkgdir/usr/bin/"*; do
-            if [[ $(head -n1 "$f") = "#!$(readlink -f _tmpenv)/bin/python" ]]; then
+            # Like [[ "$(head -n1 "$f")" = "#!$(readlink -f _tmpenv)/bin/python" ]]
+            # but without bash warning on null bytes in "$f" (if it is actually
+            # a compiled executable, not an entry point).
+            if python -c 'import os, sys; sys.exit(not open(sys.argv[1], "rb").read().startswith(os.fsencode(sys.argv[2]) + b"\n"))' "$f" "$python"; then
                 sed -i '1c#!/usr/bin/python' "$f"
             fi
         done

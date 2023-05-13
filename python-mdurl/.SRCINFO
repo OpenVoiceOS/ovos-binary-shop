@@ -5,7 +5,6 @@ pkgbase = python-mdurl
 	url = https://pypi.org/project/mdurl/
 	arch = any
 	license = MIT
-	makedepends = python-pip
 	depends = python
 	noextract = mdurl-0.1.2-py3-none-any.whl
 	source = PKGBUILD_EXTRAS

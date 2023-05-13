@@ -5,7 +5,7 @@ export PIP_DISABLE_PIP_VERSION_CHECK=true
 
 pkgname=python-ovos-utils
 epoch=
-pkgver=0.0.31a16
+pkgver=0.0.33a6
 pkgrel=00
 pkgdesc='collection of simple utilities for use across the mycroft ecosystem'
 arch=(any)
@@ -13,16 +13,16 @@ url=https://github.com/OpenVoiceOS/ovos_utils
 license=(custom:Apache)
 depends=(python python-json-database python-kthread python-pexpect python-pyee python-requests python-watchdog)
 ## EXTRA_DEPENDS ##
-makedepends=(python-pip)
+makedepends=()
 checkdepends=()
 provides=()
 conflicts=(${provides%=*})  # No quotes, to avoid an empty entry.
 source=(PKGBUILD_EXTRAS)
 md5sums=(SKIP)
 noextract=()
-source+=(https://files.pythonhosted.org/packages/9f/93/236911c2b6e2719f23876056a5140e039f69115f9c5716cbc0a12d19d3ca/ovos_utils-0.0.31a16-py3-none-any.whl)
-md5sums+=(f5a112df09b2d6002ff99befd3ff7970)
-noextract+=(ovos_utils-0.0.31a16-py3-none-any.whl)
+source+=(https://files.pythonhosted.org/packages/3c/3d/f431511e858fb33e31ee29f0f7ab4925644eb634abcc0b838f94b91e669a/ovos_utils-0.0.33a6-py3-none-any.whl)
+md5sums+=(98265e7f3f260ebcfe16551d03e76800)
+noextract+=(ovos_utils-0.0.33a6-py3-none-any.whl)
 source+=(LICENSE)
 md5sums+=(b1e01b26bacfc2232046c90a330332b3)
 
@@ -114,8 +114,12 @@ _package() {
         --no-deps --ignore-installed --no-warn-script-location \
         "$(ls ./*.whl 2>/dev/null || echo ./"$(_dist_name)")"
     if [[ -d "$pkgdir/usr/bin" ]]; then  # Fix entry points.
+        python="#!$(readlink -f _tmpenv)/bin/python"
         for f in "$pkgdir/usr/bin/"*; do
-            if [[ $(head -n1 "$f") = "#!$(readlink -f _tmpenv)/bin/python" ]]; then
+            # Like [[ "$(head -n1 "$f")" = "#!$(readlink -f _tmpenv)/bin/python" ]]
+            # but without bash warning on null bytes in "$f" (if it is actually
+            # a compiled executable, not an entry point).
+            if python -c 'import os, sys; sys.exit(not open(sys.argv[1], "rb").read().startswith(os.fsencode(sys.argv[2]) + b"\n"))' "$f" "$python"; then
                 sed -i '1c#!/usr/bin/python' "$f"
             fi
         done

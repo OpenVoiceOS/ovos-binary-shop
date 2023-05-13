@@ -5,24 +5,24 @@ export PIP_DISABLE_PIP_VERSION_CHECK=true
 
 pkgname=python-ovos-config
 epoch=
-pkgver=0.0.8a4
+pkgver=0.0.9a1
 pkgrel=00
 pkgdesc='mycroft-core configuration module'
 arch=(any)
 url=https://github.com/OpenVoiceOS/ovos-config
 license=(custom:Apache-2.0)
-depends=(python python-combo-lock python-ovos-backend-client python-ovos-utils python-dateutil python-yaml python-rich-click python-watchdog)
+depends=(python python-combo-lock python-ovos-utils python-dateutil python-yaml python-rich-click python-watchdog)
 ## EXTRA_DEPENDS ##
-makedepends=(python-pip)
+makedepends=()
 checkdepends=()
 provides=()
 conflicts=(${provides%=*})  # No quotes, to avoid an empty entry.
 source=(PKGBUILD_EXTRAS)
 md5sums=(SKIP)
 noextract=()
-source+=(https://files.pythonhosted.org/packages/dc/57/c1b6609d7dae16368f64aab7c0fa85345465b0c423748c39ef4926ca7d96/ovos_config-0.0.8a4-py3-none-any.whl)
-md5sums+=(d148fcf00df497fde9857dd32be821d6)
-noextract+=(ovos_config-0.0.8a4-py3-none-any.whl)
+source+=(https://files.pythonhosted.org/packages/91/37/97ec0c35f7dfb881b9176ce091c71994c2f2c85589d4c6b37c4f9e11a41a/ovos_config-0.0.9a1-py3-none-any.whl)
+md5sums+=(f2b949e6e3a8c2d10ee19497c747254e)
+noextract+=(ovos_config-0.0.9a1-py3-none-any.whl)
 source+=(LICENSE)
 md5sums+=(d58e539155262e617b64b12018014cf6)
 
@@ -114,8 +114,12 @@ _package() {
         --no-deps --ignore-installed --no-warn-script-location \
         "$(ls ./*.whl 2>/dev/null || echo ./"$(_dist_name)")"
     if [[ -d "$pkgdir/usr/bin" ]]; then  # Fix entry points.
+        python="#!$(readlink -f _tmpenv)/bin/python"
         for f in "$pkgdir/usr/bin/"*; do
-            if [[ $(head -n1 "$f") = "#!$(readlink -f _tmpenv)/bin/python" ]]; then
+            # Like [[ "$(head -n1 "$f")" = "#!$(readlink -f _tmpenv)/bin/python" ]]
+            # but without bash warning on null bytes in "$f" (if it is actually
+            # a compiled executable, not an entry point).
+            if python -c 'import os, sys; sys.exit(not open(sys.argv[1], "rb").read().startswith(os.fsencode(sys.argv[2]) + b"\n"))' "$f" "$python"; then
                 sed -i '1c#!/usr/bin/python' "$f"
             fi
         done

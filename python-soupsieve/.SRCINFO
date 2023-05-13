@@ -5,7 +5,6 @@ pkgbase = python-soupsieve
 	url = https://pypi.org/project/soupsieve/
 	arch = any
 	license = MIT
-	makedepends = python-pip
 	depends = python
 	noextract = soupsieve-2.4.1-py3-none-any.whl
 	source = PKGBUILD_EXTRAS

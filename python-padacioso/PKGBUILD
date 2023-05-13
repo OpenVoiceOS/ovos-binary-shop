@@ -5,23 +5,24 @@ export PIP_DISABLE_PIP_VERSION_CHECK=true
 
 pkgname=python-padacioso
 epoch=
-pkgver=0.1.2
+pkgver=0.2.1a2
 pkgrel=00
 pkgdesc='dead simple intent parser'
 arch=(any)
-url=https://github.com/OpenJarbas/padacioso
+url=https://github.com/OpenVoiceOS/padacioso
 license=(custom:apache-2.0)
 depends=(python python-simplematch)
 ## EXTRA_DEPENDS ##
-makedepends=(python-pip python-wheel)
+makedepends=()
 checkdepends=()
 provides=()
 conflicts=(${provides%=*})  # No quotes, to avoid an empty entry.
 source=(PKGBUILD_EXTRAS)
 md5sums=(SKIP)
 noextract=()
-source+=(https://files.pythonhosted.org/packages/27/a2/eab4eff46b37c7bd9072159725aae91c23999a505f8e186150e68d7e80f8/padacioso-0.1.2.tar.gz)
-md5sums+=(a9ac6154621d36f0091fe6108a945c3b)
+source+=(https://files.pythonhosted.org/packages/2a/ae/4b3358a8179221cd9f08638f4e2c29bbf37982d347249dece06973f99af5/padacioso-0.2.1a2-py3-none-any.whl)
+md5sums+=(db3c2d59c6c426a5d3ee401d5c5b0704)
+noextract+=(padacioso-0.2.1a2-py3-none-any.whl)
 source+=(LICENSE)
 md5sums+=(ffb93058331cc7f50f76179423b9c219)
 
@@ -113,8 +114,12 @@ _package() {
         --no-deps --ignore-installed --no-warn-script-location \
         "$(ls ./*.whl 2>/dev/null || echo ./"$(_dist_name)")"
     if [[ -d "$pkgdir/usr/bin" ]]; then  # Fix entry points.
+        python="#!$(readlink -f _tmpenv)/bin/python"
         for f in "$pkgdir/usr/bin/"*; do
-            if [[ $(head -n1 "$f") = "#!$(readlink -f _tmpenv)/bin/python" ]]; then
+            # Like [[ "$(head -n1 "$f")" = "#!$(readlink -f _tmpenv)/bin/python" ]]
+            # but without bash warning on null bytes in "$f" (if it is actually
+            # a compiled executable, not an entry point).
+            if python -c 'import os, sys; sys.exit(not open(sys.argv[1], "rb").read().startswith(os.fsencode(sys.argv[2]) + b"\n"))' "$f" "$python"; then
                 sed -i '1c#!/usr/bin/python' "$f"
             fi
         done

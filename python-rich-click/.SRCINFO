@@ -5,7 +5,6 @@ pkgbase = python-rich-click
 	url = https://github.com/ewels/rich-click
 	arch = any
 	license = MIT
-	makedepends = python-pip
 	depends = python
 	depends = python-click
 	depends = python-rich
