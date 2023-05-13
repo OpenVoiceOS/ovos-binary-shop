@@ -1,4 +1,4 @@
-name: Plugin PKGUILDS
+name: STT Plugin PKGUILDS
 on:
   workflow_dispatch:
 

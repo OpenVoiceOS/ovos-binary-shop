@@ -1,4 +1,4 @@
-name: Plugin PKGUILDS
+name: TTS Plugin PKGUILDS
 on:
   workflow_dispatch:
 

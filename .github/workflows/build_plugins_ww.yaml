@@ -1,4 +1,4 @@
-name: Plugin PKGUILDS
+name: WW Plugin PKGUILDS
 on:
   workflow_dispatch:
 
