@@ -1,0 +1,20 @@
+pkgbase = python-ovos-plugin-mplayer
+	pkgdesc = mplayer plugin for ovos
+	pkgver = 0.0.0
+	pkgrel = 00
+	url = https://github.com/OpenVoiceOS/ovos-mplayer-plugin
+	arch = any
+	license = custom:Apache-2.0
+	depends = python
+	depends = python-ovos-plugin-common-play
+	depends = python-ovos-plugin-manager
+	depends = python-py-mplayer
+	noextract = ovos_plugin_mplayer-0.0.0-py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/c6/81/e833002c33769aa8017cb749c880d8bf0be05d436c1775dee701682afec0/ovos_plugin_mplayer-0.0.0-py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 0231cf65218ee4694ac09926c3b7e7a5
+	md5sums = 045edd5501b7c33e6848b421aa2d9e1e
+
+pkgname = python-ovos-plugin-mplayer

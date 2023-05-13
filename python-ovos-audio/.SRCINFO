@@ -5,7 +5,6 @@ pkgbase = python-ovos-audio
 	url = https://github.com/OpenVoiceOS/ovos-audio
 	arch = any
 	license = Apache
-	makedepends = python-pip
 	depends = python
 	depends = python-ovos-bus-client
 	depends = python-ovos-config

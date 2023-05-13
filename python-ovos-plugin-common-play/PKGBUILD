@@ -5,7 +5,7 @@ export PIP_DISABLE_PIP_VERSION_CHECK=true
 
 pkgname=python-ovos-plugin-common-play
 epoch=
-pkgver=0.0.5a6
+pkgver=0.0.6a1
 pkgrel=00
 pkgdesc='OVOS common play audio service adapter plugin'
 arch=(any)
@@ -13,16 +13,16 @@ url=https://github.com/OpenVoiceOS/ovos-ocp-audio-plugin
 license=(Apache)
 depends=(python python-dbus-next python-ovos-audio-plugin-simple python-ovos-bus-client python-ovos-ocp-files-plugin python-ovos-plugin-manager python-ovos-utils python-ovos-workshop python-padacioso)
 ## EXTRA_DEPENDS ##
-makedepends=(python-pip)
+makedepends=()
 checkdepends=()
 provides=()
 conflicts=(${provides%=*})  # No quotes, to avoid an empty entry.
 source=(PKGBUILD_EXTRAS)
 md5sums=(SKIP)
 noextract=()
-source+=(https://files.pythonhosted.org/packages/ff/dc/9deee7b1a32a58d5b2e1ce214377a3a32bfe5821da2ccc5edc47f16ffe25/ovos_plugin_common_play-0.0.5a6-py3-none-any.whl)
-md5sums+=(6f76e79bb4191ca64f33ffadafe41692)
-noextract+=(ovos_plugin_common_play-0.0.5a6-py3-none-any.whl)
+source+=(https://files.pythonhosted.org/packages/93/fa/2144be639ff05fbba0cce4b7371f496bc9577ad5e927a2926a8a377fdd5c/ovos_plugin_common_play-0.0.6a1-py3-none-any.whl)
+md5sums+=(98dafb027db91b2c3c19e1a81ce18048)
+noextract+=(ovos_plugin_common_play-0.0.6a1-py3-none-any.whl)
 source+=(LICENSE)
 md5sums+=(045edd5501b7c33e6848b421aa2d9e1e)
 
@@ -114,8 +114,12 @@ _package() {
         --no-deps --ignore-installed --no-warn-script-location \
         "$(ls ./*.whl 2>/dev/null || echo ./"$(_dist_name)")"
     if [[ -d "$pkgdir/usr/bin" ]]; then  # Fix entry points.
+        python="#!$(readlink -f _tmpenv)/bin/python"
         for f in "$pkgdir/usr/bin/"*; do
-            if [[ $(head -n1 "$f") = "#!$(readlink -f _tmpenv)/bin/python" ]]; then
+            # Like [[ "$(head -n1 "$f")" = "#!$(readlink -f _tmpenv)/bin/python" ]]
+            # but without bash warning on null bytes in "$f" (if it is actually
+            # a compiled executable, not an entry point).
+            if python -c 'import os, sys; sys.exit(not open(sys.argv[1], "rb").read().startswith(os.fsencode(sys.argv[2]) + b"\n"))' "$f" "$python"; then
                 sed -i '1c#!/usr/bin/python' "$f"
             fi
         done

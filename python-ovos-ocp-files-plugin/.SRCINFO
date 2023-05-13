@@ -5,7 +5,6 @@ pkgbase = python-ovos-ocp-files-plugin
 	url = https://github.com/OpenVoiceOS/ovos-ocp-files-plugin
 	arch = any
 	license = custom:MIT
-	makedepends = python-pip
 	depends = python
 	depends = python-attrs
 	depends = python-bidict

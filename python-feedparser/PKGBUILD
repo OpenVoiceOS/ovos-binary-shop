@@ -3,16 +3,16 @@
 export PIP_CONFIG_FILE=/dev/null
 export PIP_DISABLE_PIP_VERSION_CHECK=true
 
-pkgname=python-ovos-tts-plugin-mimic3-server
+pkgname=python-feedparser
 epoch=
-pkgver=0.0.2a1
+pkgver=6.0.10
 pkgrel=00
-pkgdesc='Mimic3 server plugin for OpenVoiceOS'
+pkgdesc='Universal feed parser, handles RSS 0.9x, RSS 1.0, RSS 2.0, CDF, Atom 0.3, and Atom 1.0 feeds'
 arch=(any)
-url=https://github.com/OpenVoiceOS/ovos-tts-plugin-mimic3-server
-license=(Apache)
-depends=(python python-ovos-plugin-manager python-ovos-utils python-requests)
-## EXTRA_DEPENDS ##
+url=https://github.com/kurtmckee/feedparser
+license=(BSD)
+depends=(python python-sgmllib3k)
+depends+=(python-chardet)
 makedepends=()
 checkdepends=()
 provides=()
@@ -20,11 +20,11 @@ conflicts=(${provides%=*})  # No quotes, to avoid an empty entry.
 source=(PKGBUILD_EXTRAS)
 md5sums=(SKIP)
 noextract=()
-source+=(https://files.pythonhosted.org/packages/1d/62/778e5b5d1635a5ad7d4c5fbd8e36ee6e89501c91d0bdc430042f5e03e6e0/ovos_tts_plugin_mimic3_server-0.0.2a1-py3-none-any.whl)
-md5sums+=(20af1995615a02c095c166d5e440c589)
-noextract+=(ovos_tts_plugin_mimic3_server-0.0.2a1-py3-none-any.whl)
+source+=(https://files.pythonhosted.org/packages/92/1e/741fd94cf2855d251712868f2183cb6485a28daaa3947e1a7046dc036aca/feedparser-6.0.10-py3-none-any.whl)
+md5sums+=(91990e695de1e14e4b0beb1788327831)
+noextract+=(feedparser-6.0.10-py3-none-any.whl)
 source+=(LICENSE)
-md5sums+=(045edd5501b7c33e6848b421aa2d9e1e)
+md5sums+=(4940c38d79bc5dca0630466d7c54b004)
 
 _first_source() {
     echo " ${source_i686[@]} ${source_x86_64[@]} ${source[@]}" |

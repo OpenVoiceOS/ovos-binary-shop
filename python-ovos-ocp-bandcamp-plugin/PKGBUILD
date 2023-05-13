@@ -3,15 +3,15 @@
 export PIP_CONFIG_FILE=/dev/null
 export PIP_DISABLE_PIP_VERSION_CHECK=true
 
-pkgname=python-ovos-tts-plugin-mimic3-server
+pkgname=python-ovos-ocp-bandcamp-plugin
 epoch=
-pkgver=0.0.2a1
+pkgver=0.0.1
 pkgrel=00
-pkgdesc='Mimic3 server plugin for OpenVoiceOS'
+pkgdesc='OCP youtube stream extractor plugin'
 arch=(any)
-url=https://github.com/OpenVoiceOS/ovos-tts-plugin-mimic3-server
-license=(Apache)
-depends=(python python-ovos-plugin-manager python-ovos-utils python-requests)
+url=https://github.com/OpenVoiceOS/ovos-ocp-bandcamp-plugin
+license=(custom:Apache-2.0)
+depends=(python python-ovos-plugin-common-play python-py-bandcamp)
 ## EXTRA_DEPENDS ##
 makedepends=()
 checkdepends=()
@@ -20,11 +20,11 @@ conflicts=(${provides%=*})  # No quotes, to avoid an empty entry.
 source=(PKGBUILD_EXTRAS)
 md5sums=(SKIP)
 noextract=()
-source+=(https://files.pythonhosted.org/packages/1d/62/778e5b5d1635a5ad7d4c5fbd8e36ee6e89501c91d0bdc430042f5e03e6e0/ovos_tts_plugin_mimic3_server-0.0.2a1-py3-none-any.whl)
-md5sums+=(20af1995615a02c095c166d5e440c589)
-noextract+=(ovos_tts_plugin_mimic3_server-0.0.2a1-py3-none-any.whl)
+source+=(https://files.pythonhosted.org/packages/1b/bb/8004341da0e2077681ed18aca8c0f3170582fe60fd54a34bcbe441e52f8b/ovos_ocp_bandcamp_plugin-0.0.1-py3-none-any.whl)
+md5sums+=(7ec830af59e3294590e652bd6988cf02)
+noextract+=(ovos_ocp_bandcamp_plugin-0.0.1-py3-none-any.whl)
 source+=(LICENSE)
-md5sums+=(045edd5501b7c33e6848b421aa2d9e1e)
+md5sums+=(d58e539155262e617b64b12018014cf6)
 
 _first_source() {
     echo " ${source_i686[@]} ${source_x86_64[@]} ${source[@]}" |

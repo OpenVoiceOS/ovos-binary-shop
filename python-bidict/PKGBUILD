@@ -3,16 +3,16 @@
 export PIP_CONFIG_FILE=/dev/null
 export PIP_DISABLE_PIP_VERSION_CHECK=true
 
-pkgname=python-ovos-tts-plugin-mimic3-server
+pkgname=python-bidict
 epoch=
-pkgver=0.0.2a1
+pkgver=0.22.1
 pkgrel=00
-pkgdesc='Mimic3 server plugin for OpenVoiceOS'
+pkgdesc='The bidirectional mapping library for Python.'
 arch=(any)
-url=https://github.com/OpenVoiceOS/ovos-tts-plugin-mimic3-server
-license=(Apache)
-depends=(python python-ovos-plugin-manager python-ovos-utils python-requests)
-## EXTRA_DEPENDS ##
+url=https://pypi.org/project/bidict/
+license=(MPL2)
+depends=(python )
+depends+=(python-typing_extensions)
 makedepends=()
 checkdepends=()
 provides=()
@@ -20,11 +20,11 @@ conflicts=(${provides%=*})  # No quotes, to avoid an empty entry.
 source=(PKGBUILD_EXTRAS)
 md5sums=(SKIP)
 noextract=()
-source+=(https://files.pythonhosted.org/packages/1d/62/778e5b5d1635a5ad7d4c5fbd8e36ee6e89501c91d0bdc430042f5e03e6e0/ovos_tts_plugin_mimic3_server-0.0.2a1-py3-none-any.whl)
-md5sums+=(20af1995615a02c095c166d5e440c589)
-noextract+=(ovos_tts_plugin_mimic3_server-0.0.2a1-py3-none-any.whl)
+source+=(https://files.pythonhosted.org/packages/b5/82/ce0b6380f35f49d3fe687979a324c342cfa3588380232f3801db9dd62f9e/bidict-0.22.1-py3-none-any.whl)
+md5sums+=(232c93cdba826dc273b3edaec4096965)
+noextract+=(bidict-0.22.1-py3-none-any.whl)
 source+=(LICENSE)
-md5sums+=(045edd5501b7c33e6848b421aa2d9e1e)
+md5sums+=(858e74278ef3830d46481172ae03c819)
 
 _first_source() {
     echo " ${source_i686[@]} ${source_x86_64[@]} ${source[@]}" |

@@ -1,0 +1,19 @@
+pkgbase = python-ovos-ocp-bandcamp-plugin
+	pkgdesc = OCP youtube stream extractor plugin
+	pkgver = 0.0.1
+	pkgrel = 00
+	url = https://github.com/OpenVoiceOS/ovos-ocp-bandcamp-plugin
+	arch = any
+	license = custom:Apache-2.0
+	depends = python
+	depends = python-ovos-plugin-common-play
+	depends = python-py-bandcamp
+	noextract = ovos_ocp_bandcamp_plugin-0.0.1-py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/1b/bb/8004341da0e2077681ed18aca8c0f3170582fe60fd54a34bcbe441e52f8b/ovos_ocp_bandcamp_plugin-0.0.1-py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 7ec830af59e3294590e652bd6988cf02
+	md5sums = d58e539155262e617b64b12018014cf6
+
+pkgname = python-ovos-ocp-bandcamp-plugin

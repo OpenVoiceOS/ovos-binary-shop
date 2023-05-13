@@ -1,0 +1,19 @@
+pkgbase = python-ovos-ocp-deezer-plugin
+	pkgdesc = OCP youtube stream extractor plugin
+	pkgver = 0.0.1
+	pkgrel = 00
+	url = https://github.com/OpenVoiceOS/ovos-ocp-deezer-plugin
+	arch = any
+	license = custom:Apache-2.0
+	depends = python
+	depends = python-deezeridu
+	depends = python-ovos-plugin-common-play
+	noextract = ovos_ocp_deezer_plugin-0.0.1-py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/98/3a/ca71295ffe0e7e85adde735de8a28eaf78833f854daf12f316182c01984a/ovos_ocp_deezer_plugin-0.0.1-py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 845c33f5dfbd0bb81ba09c4776f59ad8
+	md5sums = d58e539155262e617b64b12018014cf6
+
+pkgname = python-ovos-ocp-deezer-plugin

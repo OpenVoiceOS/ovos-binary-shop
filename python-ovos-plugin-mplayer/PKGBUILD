@@ -3,15 +3,15 @@
 export PIP_CONFIG_FILE=/dev/null
 export PIP_DISABLE_PIP_VERSION_CHECK=true
 
-pkgname=python-ovos-tts-plugin-mimic3-server
+pkgname=python-ovos-plugin-mplayer
 epoch=
-pkgver=0.0.2a1
+pkgver=0.0.0
 pkgrel=00
-pkgdesc='Mimic3 server plugin for OpenVoiceOS'
+pkgdesc='mplayer plugin for ovos'
 arch=(any)
-url=https://github.com/OpenVoiceOS/ovos-tts-plugin-mimic3-server
-license=(Apache)
-depends=(python python-ovos-plugin-manager python-ovos-utils python-requests)
+url=https://github.com/OpenVoiceOS/ovos-mplayer-plugin
+license=(custom:Apache-2.0)
+depends=(python python-ovos-plugin-common-play python-ovos-plugin-manager python-py-mplayer)
 ## EXTRA_DEPENDS ##
 makedepends=()
 checkdepends=()
@@ -20,9 +20,9 @@ conflicts=(${provides%=*})  # No quotes, to avoid an empty entry.
 source=(PKGBUILD_EXTRAS)
 md5sums=(SKIP)
 noextract=()
-source+=(https://files.pythonhosted.org/packages/1d/62/778e5b5d1635a5ad7d4c5fbd8e36ee6e89501c91d0bdc430042f5e03e6e0/ovos_tts_plugin_mimic3_server-0.0.2a1-py3-none-any.whl)
-md5sums+=(20af1995615a02c095c166d5e440c589)
-noextract+=(ovos_tts_plugin_mimic3_server-0.0.2a1-py3-none-any.whl)
+source+=(https://files.pythonhosted.org/packages/c6/81/e833002c33769aa8017cb749c880d8bf0be05d436c1775dee701682afec0/ovos_plugin_mplayer-0.0.0-py3-none-any.whl)
+md5sums+=(0231cf65218ee4694ac09926c3b7e7a5)
+noextract+=(ovos_plugin_mplayer-0.0.0-py3-none-any.whl)
 source+=(LICENSE)
 md5sums+=(045edd5501b7c33e6848b421aa2d9e1e)
 
