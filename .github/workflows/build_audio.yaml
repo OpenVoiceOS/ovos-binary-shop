@@ -11,6 +11,7 @@ jobs:
       - name: Install build Dependencies
         run: |
           sudo pacman --noconfirm --needed -Sy pkgfile namcap python-pip git swig cython base-devel gcc-fortran fann cargo ninja python-google-api-core python-setuptools python-wheel pkgconf portaudio
+          yes | LC_ALL=en_US.UTF-8 sudo pacman -S openblas
           pip install git+https://github.com/anntzer/pypi2pkgbuild
           pkgfile --update
       - name: gen PKGBUILDS
