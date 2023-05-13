@@ -5,7 +5,7 @@ export PIP_DISABLE_PIP_VERSION_CHECK=true
 
 pkgname=python-ovos-dinkum-listener
 epoch=
-pkgver=0.0.2a12
+pkgver=0.0.2a17
 pkgrel=00
 pkgdesc='ovos-core listener daemon client'
 arch=(any)
@@ -13,16 +13,16 @@ url=https://github.com/OpenVoiceOS/ovos-dinkum-listener
 license=(Apache)
 depends=(python python-ovos-backend-client python-ovos-bus-client python-ovos-plugin-manager python-ovos-utils python-pyalsaaudio python-sdnotify python-speechrecognition)
 ## EXTRA_DEPENDS ##
-makedepends=(python-pip)
+makedepends=()
 checkdepends=()
 provides=()
 conflicts=(${provides%=*})  # No quotes, to avoid an empty entry.
 source=(PKGBUILD_EXTRAS)
 md5sums=(SKIP)
 noextract=()
-source+=(https://files.pythonhosted.org/packages/b8/73/aabb3486f79546610e68cb3d0b89cd457a8b4024cfde95b185550e79208f/ovos_dinkum_listener-0.0.2a12-py3-none-any.whl)
-md5sums+=(8f354df5051996277aca953bb9c8f53d)
-noextract+=(ovos_dinkum_listener-0.0.2a12-py3-none-any.whl)
+source+=(https://files.pythonhosted.org/packages/43/6f/ed62367259d8c5da6a3d1c3b325304108e062170fdacd404c1ef64554ca0/ovos_dinkum_listener-0.0.2a17-py3-none-any.whl)
+md5sums+=(3aff4d1c0d0bfd8d7aa18e85e4d3bdce)
+noextract+=(ovos_dinkum_listener-0.0.2a17-py3-none-any.whl)
 source+=(LICENSE)
 md5sums+=(a5c534c0b0d5eb7b11a937c909109c2c)
 
@@ -114,8 +114,12 @@ _package() {
         --no-deps --ignore-installed --no-warn-script-location \
         "$(ls ./*.whl 2>/dev/null || echo ./"$(_dist_name)")"
     if [[ -d "$pkgdir/usr/bin" ]]; then  # Fix entry points.
+        python="#!$(readlink -f _tmpenv)/bin/python"
         for f in "$pkgdir/usr/bin/"*; do
-            if [[ $(head -n1 "$f") = "#!$(readlink -f _tmpenv)/bin/python" ]]; then
+            # Like [[ "$(head -n1 "$f")" = "#!$(readlink -f _tmpenv)/bin/python" ]]
+            # but without bash warning on null bytes in "$f" (if it is actually
+            # a compiled executable, not an entry point).
+            if python -c 'import os, sys; sys.exit(not open(sys.argv[1], "rb").read().startswith(os.fsencode(sys.argv[2]) + b"\n"))' "$f" "$python"; then
                 sed -i '1c#!/usr/bin/python' "$f"
             fi
         done

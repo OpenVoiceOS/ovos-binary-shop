@@ -1,0 +1,21 @@
+pkgbase = python-scipy
+	pkgdesc = Fundamental algorithms for scientific computing in Python
+	pkgver = 1.10.1
+	pkgrel = 00
+	url = https://scipy.org/
+	arch = x86_64
+	license = BSD
+	makedepends = cython
+	depends = python
+	depends = python-numpy
+	depends = openblas
+	depends = python-appdirs
+	depends = python-cffi
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/84/a9/2bf119f3f9cff1f376f924e39cfae18dec92a1514784046d185731301281/scipy-1.10.1.tar.gz
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = de3db61d840456634ba37f2b5816e049
+	md5sums = acc6c1a7669d9987de16de7bde2e822a
+
+pkgname = python-scipy

@@ -5,7 +5,6 @@ pkgbase = python-ovos-stt-plugin-vosk
 	url = https://github.com/OpenVoiceOS/ovos-stt-plugin-vosk
 	arch = any
 	license = Apache
-	makedepends = python-pip
 	depends = python
 	depends = python-ovos-plugin-manager
 	depends = python-ovos-skill-installer

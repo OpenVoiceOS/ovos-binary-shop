@@ -5,7 +5,6 @@ pkgbase = python-ovos-stt-plugin-server
 	url = https://github.com/OpenVoiceOS/ovos-stt-server-plugin
 	arch = any
 	license = Apache
-	makedepends = python-pip
 	depends = python
 	depends = python-ovos-plugin-manager
 	depends = python-requests

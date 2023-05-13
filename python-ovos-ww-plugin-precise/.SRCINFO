@@ -5,7 +5,6 @@ pkgbase = python-ovos-ww-plugin-precise
 	url = https://github.com/OpenVoiceOS/ovos-ww-plugin-precise
 	arch = any
 	license = Apache
-	makedepends = python-pip
 	depends = python
 	depends = python-ovos-plugin-manager
 	depends = python-ovos-utils

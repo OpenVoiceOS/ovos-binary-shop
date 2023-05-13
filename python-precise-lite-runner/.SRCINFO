@@ -4,7 +4,6 @@ pkgbase = python-precise-lite-runner
 	url = https://github.com/OpenVoiceOS/precise_lite_runner
 	arch = any
 	license = custom:Apache-2.0
-	makedepends = python-pip
 	depends = python
 	depends = python-sonopy
 	noextract = precise_lite_runner-0.4.2a2-py3-none-any.whl
