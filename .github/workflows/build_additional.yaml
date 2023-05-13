@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Install build Dependencies
         run: |
-          sudo pacman --noconfirm --needed -Sy pkgfile namcap python-pip git swig cython base-devel fann gcc-fortran cargo portaudio ninja python-google-api-core python-setuptools python-wheel python-pillow pkgconf llvm alsa-lib libjpeg-turbo openjpeg2 libtiff 
+          sudo pacman --noconfirm --needed -Sy pkgfile namcap python-pip git swig cython base-devel fann gcc-fortran cargo portaudio ninja python-google-api-core python-setuptools python-wheel python-pillow pkgconf llvm alsa-lib
           yes | LC_ALL=en_US.UTF-8 sudo pacman -S openblas
           pip install git+https://github.com/anntzer/pypi2pkgbuild
           pkgfile --update
