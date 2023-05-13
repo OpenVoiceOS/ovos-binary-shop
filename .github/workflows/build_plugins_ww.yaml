@@ -1,0 +1,45 @@
+name: Plugin PKGUILDS
+on:
+  workflow_dispatch:
+
+jobs:
+  pkgbuild:
+    runs-on: ubuntu-latest
+    container:
+      image: manjarolinux/base:latest
+    steps:
+      - name: Install build Dependencies
+        run: |
+          sudo pacman --noconfirm --needed -Sy pkgfile namcap python-pip python-setuptools git swig cython gcc-fortran base-devel fann cargo ninja python-google-api-core python-setuptools python-wheel python-pillow pkgconf llvm alsa-lib
+          yes | LC_ALL=en_US.UTF-8 sudo pacman -S openblas
+          pip install git+https://github.com/anntzer/pypi2pkgbuild
+          pkgfile --update
+      - name: gen PKGBUILDS
+        run: |
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-ww-plugin-pocketsphinx
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-ww-plugin-precise
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-ww-plugin-precise-lite
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-ww-plugin-openWakeWord
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-ww-plugin-vosk
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-ww-plugin-snowboy
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-ww-plugin-nyumaya
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-ww-plugin-hotkeys
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-vad-plugin-webrtcvad
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-vad-plugin-silero
+      - uses: actions/checkout@v3
+        with:
+          ref: dev
+      - name: Cleanup
+        run: |
+          (cd /tmp/build && tar c .) | (cd . && tar xf -)
+          sudo rm -rf python-*/pkg
+          sudo rm -rf python-*/src
+          sudo rm -rf python-*/*.whl
+          sudo rm -rf python-*/*.pkg.tar.zst
+          ls
+          git config --global --add safe.directory /__w/ovos-binary-shop/ovos-binary-shop
+      - name: Commit
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: pkgbuild ww plugins
+          add: 'python-* --force'
