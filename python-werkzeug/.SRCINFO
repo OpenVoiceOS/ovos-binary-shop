@@ -1,0 +1,21 @@
+pkgbase = python-werkzeug
+	pkgdesc = The comprehensive WSGI web application library.
+	pkgver = 2.3.4
+	pkgrel = 00
+	url = https://pypi.org/project/Werkzeug/
+	arch = any
+	license = BSD
+	depends = python
+	depends = python-markupsafe
+	depends = python-cryptography
+	depends = python-typing_extensions
+	depends = python-setuptools
+	noextract = Werkzeug-2.3.4-py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/c2/2f/f0dc628295bd23571c962d5a349307d9c8796a05bfca6571659eaded38e2/Werkzeug-2.3.4-py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 0edf9b68d625e28f9d1c02566c698268
+	md5sums = 53603c402b2015364986250ac360fd0e
+
+pkgname = python-werkzeug

@@ -3,16 +3,16 @@
 export PIP_CONFIG_FILE=/dev/null
 export PIP_DISABLE_PIP_VERSION_CHECK=true
 
-pkgname=python-ovos-phal-plugin-alsa
+pkgname=python-werkzeug
 epoch=
-pkgver=0.0.2
+pkgver=2.3.4
 pkgrel=00
-pkgdesc='A volume control plugin for OpenVoiceOS hardware abstraction layer'
+pkgdesc='The comprehensive WSGI web application library.'
 arch=(any)
-url=https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa
-license=(Apache)
-depends=(python python-json-database python-ovos-plugin-manager python-pyalsaaudio)
-## EXTRA_DEPENDS ##
+url=https://pypi.org/project/Werkzeug/
+license=(BSD)
+depends=(python python-markupsafe)
+depends+=(python-cryptography python-typing_extensions python-setuptools)
 makedepends=()
 checkdepends=()
 provides=()
@@ -20,10 +20,11 @@ conflicts=(${provides%=*})  # No quotes, to avoid an empty entry.
 source=(PKGBUILD_EXTRAS)
 md5sums=(SKIP)
 noextract=()
-source+=(https://files.pythonhosted.org/packages/d9/f7/a6175a28504eef05f758acf55556e8f8542242705ea05983250a7103909c/ovos-PHAL-plugin-alsa-0.0.2.tar.gz)
-md5sums+=(8764b9e961a94330ac91a909f76a2485)
+source+=(https://files.pythonhosted.org/packages/c2/2f/f0dc628295bd23571c962d5a349307d9c8796a05bfca6571659eaded38e2/Werkzeug-2.3.4-py3-none-any.whl)
+md5sums+=(0edf9b68d625e28f9d1c02566c698268)
+noextract+=(Werkzeug-2.3.4-py3-none-any.whl)
 source+=(LICENSE)
-md5sums+=(a5c534c0b0d5eb7b11a937c909109c2c)
+md5sums+=(53603c402b2015364986250ac360fd0e)
 
 _first_source() {
     echo " ${source_i686[@]} ${source_x86_64[@]} ${source[@]}" |

@@ -5,7 +5,6 @@ pkgbase = python-mycroft-messagebus-client
 	url = https://github.com/MycroftAI/mycroft-messagebus-client
 	arch = any
 	license = Apache
-	makedepends = python-pip
 	depends = python
 	depends = python-pyee
 	depends = python-websocket-client

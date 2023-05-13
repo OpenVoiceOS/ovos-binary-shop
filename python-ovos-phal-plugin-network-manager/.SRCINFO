@@ -5,7 +5,6 @@ pkgbase = python-ovos-phal-plugin-network-manager
 	url = https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager
 	arch = any
 	license = Apache
-	makedepends = python-pip
 	depends = python
 	depends = python-dbus-next
 	depends = python-mycroft-messagebus-client

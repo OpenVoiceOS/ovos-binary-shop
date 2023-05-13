@@ -1,0 +1,23 @@
+pkgbase = python-flask
+	pkgdesc = A simple framework for building complex web applications.
+	pkgver = 2.3.2
+	pkgrel = 00
+	url = https://pypi.org/project/Flask/
+	arch = any
+	license = BSD
+	depends = python
+	depends = python-blinker
+	depends = python-click
+	depends = python-itsdangerous
+	depends = python-jinja
+	depends = python-werkzeug
+	depends = python-cryptography
+	noextract = Flask-2.3.2-py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/fa/1a/f191d32818e5cd985bdd3f47a6e4f525e2db1ce5e8150045ca0c31813686/Flask-2.3.2-py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 2f059837d4c9e51a62de0fd061e9c947
+	md5sums = 53603c402b2015364986250ac360fd0e
+
+pkgname = python-flask

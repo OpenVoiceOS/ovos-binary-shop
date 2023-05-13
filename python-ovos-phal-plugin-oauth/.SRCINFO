@@ -5,7 +5,6 @@ pkgbase = python-ovos-phal-plugin-oauth
 	url = https://github.com/OpenVoiceOS/ovos-PHAL-plugin-oauth
 	arch = any
 	license = Apache
-	makedepends = python-pip
 	depends = python
 	depends = python-flask
 	depends = python-oauthlib

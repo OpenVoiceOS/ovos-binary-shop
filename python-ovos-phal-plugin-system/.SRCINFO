@@ -5,7 +5,6 @@ pkgbase = python-ovos-phal-plugin-system
 	url = https://github.com/OpenVoiceOS/ovos-PHAL-plugin-system
 	arch = any
 	license = Apache
-	makedepends = python-pip
 	depends = python
 	depends = python-ovos-config
 	depends = python-ovos-plugin-manager
