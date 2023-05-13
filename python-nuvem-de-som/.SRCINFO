@@ -1,0 +1,19 @@
+pkgbase = python-nuvem-de-som
+	pkgdesc = search soundcloud
+	pkgver = 0.0.1a2
+	pkgrel = 00
+	url = https://github.com/OpenJarbas/nuvem_de_som
+	arch = any
+	license = custom:unknown
+	depends = python
+	depends = python-bs4
+	depends = python-requests
+	depends = youtube-dl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/aa/1c/02134c2c27da2b5dc5058be82dc6b6ce5a254c78dbe083679785215907eb/nuvem_de_som-0.0.1a2.tar.gz
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 90e61c8a09d5a06c0373812e95eae531
+	md5sums = e4761ae89d23a3f9a0ac3c39c13262dd
+
+pkgname = python-nuvem-de-som

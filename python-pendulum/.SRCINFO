@@ -1,0 +1,19 @@
+pkgbase = python-pendulum
+	pkgdesc = Python datetimes made easy
+	pkgver = 3.0.0a1
+	pkgrel = 00
+	url = https://pendulum.eustace.io
+	arch = x86_64
+	license = MIT
+	depends = python
+	depends = python-dateutil
+	depends = python-time-machine
+	depends = python-tzdata
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/b2/f2/3d3fa543970f436a0b05dd6d4c75ddc06c6992ba480ffe94c329c75ff4bf/pendulum-3.0.0a1.tar.gz
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 78101293001721a74ef46b9406676edd
+	md5sums = 869e1c364438f234f09673c4039ed114
+
+pkgname = python-pendulum

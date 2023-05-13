@@ -1,0 +1,19 @@
+pkgbase = python-youtube-searcher
+	pkgdesc = search youtube
+	pkgver = 0.1.7
+	pkgrel = 00
+	url = https://github.com/HelloChatterbox/youtube_searcher
+	arch = any
+	license = custom:Apache
+	depends = python
+	depends = python-bs4
+	depends = python-requests
+	depends = python-requests-cache
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/4f/84/142dcdafa7cf3977cce3375dd0d90910e5d51826586a4e27a1b2bcc379cc/youtube_searcher-0.1.7.tar.gz
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 19d1fba6f79f3f875b3f8df1362bd8f7
+	md5sums = 456bb04e72aa43a1dc74d3a07c910138
+
+pkgname = python-youtube-searcher

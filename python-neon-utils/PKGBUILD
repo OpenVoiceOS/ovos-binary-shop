@@ -5,14 +5,14 @@ export PIP_DISABLE_PIP_VERSION_CHECK=true
 
 pkgname=python-neon-utils
 epoch=
-pkgver=1.4.0
+pkgver=1.5.0a3
 pkgrel=00
 pkgdesc='Utilities for NeonAI'
 arch=(any)
 url=https://github.com/neongeckocom/neon-skill-utils
 license=(custom:BSD-3-Clause)
 depends=(python python-combo-lock python-geopy python-mycroft-messagebus-client python-nltk python-ovos-config python-ovos-lingua-franca python-ovos-utils python-ovos-workshop python-pendulum python-yaml python-timezonefinder)
-depends+=(python-ovos-core python-setuptools python-beautifulsoup4 python-ovos-plugin-manager)
+depends+=(python-setuptools python-requests)
 makedepends=()
 checkdepends=()
 provides=()
@@ -20,9 +20,9 @@ conflicts=(${provides%=*})  # No quotes, to avoid an empty entry.
 source=(PKGBUILD_EXTRAS)
 md5sums=(SKIP)
 noextract=()
-source+=(https://files.pythonhosted.org/packages/2b/5c/fddd74e1af46feab6a9313186a781ae5fdc9806b76e38ebbf64642279258/neon_utils-1.4.0-py3-none-any.whl)
-md5sums+=(081f2c5ebcf44c7b3607d3026ec39b35)
-noextract+=(neon_utils-1.4.0-py3-none-any.whl)
+source+=(https://files.pythonhosted.org/packages/23/7f/d163e071afeeb28658065443433c573ebe2e7ac578ecd9f2315ae452288e/neon_utils-1.5.0a3-py3-none-any.whl)
+md5sums+=(e2437f79fb3b2d92c28b32fe69da11bf)
+noextract+=(neon_utils-1.5.0a3-py3-none-any.whl)
 source+=(LICENSE)
 md5sums+=(714c92f4075241d2f6a58035f06fc164)
 

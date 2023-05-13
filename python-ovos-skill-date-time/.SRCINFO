@@ -5,7 +5,6 @@ pkgbase = python-ovos-skill-date-time
 	url = https://github.com/OpenVoiceOS/skill-ovos-date-time
 	arch = any
 	license = custom:Apache-2.0
-	makedepends = python-pip
 	depends = python
 	depends = python-geocoder
 	depends = python-ovos-utils

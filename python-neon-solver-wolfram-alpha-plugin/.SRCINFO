@@ -1,0 +1,21 @@
+pkgbase = python-neon-solver-wolfram-alpha-plugin
+	pkgdesc = A question solver plugin for ovos/neon/mycroft
+	pkgver = 0.0.2a0
+	pkgrel = 00
+	url = https://github.com/NeonGeckoCom/neon_solver_wolfram_alpha_plugin
+	arch = any
+	license = custom:bsd3
+	depends = python
+	depends = python-neon-lang-plugin-libretranslate
+	depends = python-neon-solvers
+	depends = python-requests
+	depends = python-requests-cache
+	noextract = neon_solver_wolfram_alpha_plugin-0.0.2a0-py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/4c/c8/9f9a125b4cba365468cdc850fc55528cd72252067a0ca2ddc5313ae71b2f/neon_solver_wolfram_alpha_plugin-0.0.2a0-py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 66731aa37a9a0477b7d9282e5fe7da5c
+	md5sums = a79ce2be2bec6b27995e6838f1afdfb6
+
+pkgname = python-neon-solver-wolfram-alpha-plugin

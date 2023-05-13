@@ -1,0 +1,21 @@
+pkgbase = python-ovos-skill-weather
+	pkgdesc = ovos skill plugin
+	pkgver = 0.0.1a1
+	pkgrel = 00
+	url = https://github.com/OpenVoiceOS/skill-ovos-weather
+	arch = any
+	license = custom:Apache-2.0
+	depends = python
+	depends = python-ovos-utils
+	depends = python-ovos-workshop
+	depends = python-pytz
+	depends = python-requests
+	noextract = ovos_skill_weather-0.0.1a1-py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/ab/b2/e50e85d1ecf46852bdb208218604b972b2ab55990f5fb69f0af63a230897/ovos_skill_weather-0.0.1a1-py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 99b85bc9cea3d3edaf0408ab9c23441f
+	md5sums = 175792518e4ac015ab6696d16c4f607e
+
+pkgname = python-ovos-skill-weather

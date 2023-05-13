@@ -1,0 +1,21 @@
+pkgbase = python-neon-solver-ddg-plugin
+	pkgdesc = A question solver plugin for ovos/neon/mycroft
+	pkgver = 0.0.2a1
+	pkgrel = 00
+	url = https://github.com/NeonGeckoCom/neon_solver_ddg_plugin
+	arch = any
+	license = custom:bsd3
+	depends = python
+	depends = python-neon-solvers
+	depends = python-requests
+	depends = python-requests-cache
+	depends = python-simplematch
+	noextract = neon_solver_ddg_plugin-0.0.2a1-py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/1c/06/82085e62b5abc8bee924de109add05ec4ff72c93350903ac1f42080fb7ee/neon_solver_ddg_plugin-0.0.2a1-py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 8adfd73cc73657fe2a9ce005cf5db2a2
+	md5sums = a79ce2be2bec6b27995e6838f1afdfb6
+
+pkgname = python-neon-solver-ddg-plugin

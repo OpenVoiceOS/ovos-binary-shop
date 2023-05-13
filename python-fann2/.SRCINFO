@@ -1,0 +1,18 @@
+pkgbase = python-fann2
+	pkgdesc = Fast Artificial Neural Network Library (FANN) Python bindings.
+	pkgver = 1.1.2
+	pkgrel = 00
+	url = https://github.com/FutureLinkCorporation/fann2
+	arch = x86_64
+	license = LGPL2.1
+	makedepends = swig
+	depends = python
+	depends = fann
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/80/a1/fed455d25c34a62d4625254880f052502a49461a5dd1b80854387ae2b25f/fann2-1.1.2.tar.gz
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 0b85b418018746d63ed66b55465697a9
+	md5sums = c73b943dc75f6f65e007c56ac6515c8f
+
+pkgname = python-fann2

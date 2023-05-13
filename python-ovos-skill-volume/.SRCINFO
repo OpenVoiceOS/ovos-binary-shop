@@ -5,7 +5,6 @@ pkgbase = python-ovos-skill-volume
 	url = https://github.com/OpenVoiceOS/skill-ovos-volume
 	arch = any
 	license = custom:Apache-2.0
-	makedepends = python-pip
 	depends = python
 	depends = python-ovos-utils
 	depends = python-ovos-workshop

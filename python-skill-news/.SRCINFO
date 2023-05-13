@@ -1,0 +1,22 @@
+pkgbase = python-skill-news
+	pkgdesc = mycroft/ovos news skill plugin
+	pkgver = 0.0.4a2
+	pkgrel = 00
+	url = https://github.com/OpenVoiceOS/skill-ovos-news
+	arch = any
+	license = custom:Apache-2.0
+	depends = python
+	depends = python-beautifulsoup4
+	depends = python-feedparser
+	depends = python-ovos-plugin-common-play
+	depends = python-ovos-workshop
+	depends = python-pytz
+	noextract = skill_news-0.0.4a2-py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/f8/bd/65b91310ea962471f44c57578b2718d7ddfedd7042e4d6ddf15cb7d55686/skill_news-0.0.4a2-py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 17c1597807a9332bd40ac10ebe5a2364
+	md5sums = 31de8f44bc100290cc57a2aad82335da
+
+pkgname = python-skill-news

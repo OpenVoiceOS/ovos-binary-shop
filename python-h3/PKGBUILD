@@ -5,14 +5,14 @@ export PIP_DISABLE_PIP_VERSION_CHECK=true
 
 pkgname=python-h3
 epoch=
-pkgver=3.7.6
+pkgver=4.0.0b2
 pkgrel=00
 pkgdesc='Hierarchical hexagonal geospatial indexing system'
-arch=(any)
+arch=(x86_64)
 url=https://github.com/uber/h3-py
 license=(Apache)
 depends=(python )
-depends+=(python-numpy)
+depends+=()
 makedepends=(cython)
 checkdepends=()
 provides=()
@@ -20,8 +20,8 @@ conflicts=(${provides%=*})  # No quotes, to avoid an empty entry.
 source=(PKGBUILD_EXTRAS)
 md5sums=(SKIP)
 noextract=()
-source+=(https://files.pythonhosted.org/packages/0e/92/30070479f7c41d66dc5f0ac44298eaedf4a7dad722348dac82d6dcc7ddd8/h3-3.7.6.tar.gz)
-md5sums+=(fa7a1039356953d5773c22dbeeed0aa1)
+source+=(https://files.pythonhosted.org/packages/18/9f/c3bf7ef02d59cb81db8ac2860292ddbfafe34d299d4f5b45ca58899f9ee3/h3-4.0.0b2.tar.gz)
+md5sums+=(49b3ab6917d84daeebbf6648ddb9ac09)
 source+=(LICENSE)
 md5sums+=(3b83ef96387f14655fc854ddc3c6bd57)
 

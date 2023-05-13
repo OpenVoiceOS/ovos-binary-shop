@@ -1,0 +1,17 @@
+pkgbase = python-time-machine
+	pkgdesc = Travel through time in your tests.
+	pkgver = 2.9.0
+	pkgrel = 00
+	url = https://github.com/adamchainz/time-machine
+	arch = x86_64
+	license = MIT
+	depends = python
+	depends = python-dateutil
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/68/e9/5629ec57af510e73e7016db727dc96b3827088ec3a593d18754cf407d1b4/time-machine-2.9.0.tar.gz
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = bc83d9a87017dce16aba009194e72e51
+	md5sums = fb9b93a440d3ef2fb6eeebfa59384c53
+
+pkgname = python-time-machine

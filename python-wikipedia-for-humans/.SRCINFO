@@ -1,0 +1,21 @@
+pkgbase = python-wikipedia-for-humans
+	pkgdesc = wikipedia for humans
+	pkgver = 0.3.1
+	pkgrel = 00
+	url = https://github.com/OpenJarbas/wikipedia_for_humans
+	arch = any
+	license = custom:MIT
+	depends = python
+	depends = python-inflection
+	depends = python-quebra-frases
+	depends = python-requests
+	depends = python-requests-cache
+	depends = python-wikipedia-api
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/29/7d/9a61c824cd30bc236749bd51c1d904ed47de066b2ef9d914a27eb2540e29/wikipedia_for_humans-0.3.1.tar.gz
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 1d2f234fb2ce8afb9b50a0f1d771d214
+	md5sums = 39520f7a3d90fabd3cba861b30f057d3
+
+pkgname = python-wikipedia-for-humans

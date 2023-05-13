@@ -5,24 +5,24 @@ export PIP_DISABLE_PIP_VERSION_CHECK=true
 
 pkgname=python-neon-skill-alerts
 epoch=
-pkgver=1.5.0
+pkgver=1.5.1a2
 pkgrel=00
 pkgdesc=''
 arch=(any)
 url=https://github.com/NeonGeckoCom/skill-alerts
 license=(custom:BSD-3-Clause)
-depends=(python python-combo-lock python-json-database python-neon-utils python-ovos-utils)
+depends=(python python-combo-lock python-json-database python-neon-utils python-ovos-bus-client python-ovos-utils)
 ## EXTRA_DEPENDS ##
-makedepends=(python-pip)
+makedepends=()
 checkdepends=()
 provides=()
 conflicts=(${provides%=*})  # No quotes, to avoid an empty entry.
 source=(PKGBUILD_EXTRAS)
 md5sums=(SKIP)
 noextract=()
-source+=(https://files.pythonhosted.org/packages/a4/e8/b646d528d2c4f71add183024f25fca7e90bc4d0ece5ef01ccac44ea214c7/neon_skill_alerts-1.5.0-py3-none-any.whl)
-md5sums+=(7e566d3acf19ed4fa7927d919846e9f5)
-noextract+=(neon_skill_alerts-1.5.0-py3-none-any.whl)
+source+=(https://files.pythonhosted.org/packages/f2/be/0c60ed494c7916f615533d45fb50b9e8ecec5a058a34c9bb78ae6fbff4bb/neon_skill_alerts-1.5.1a2-py3-none-any.whl)
+md5sums+=(c813f4079fb9fd65135054184d93c8ea)
+noextract+=(neon_skill_alerts-1.5.1a2-py3-none-any.whl)
 source+=(LICENSE)
 md5sums+=(714c92f4075241d2f6a58035f06fc164)
 
@@ -114,8 +114,12 @@ _package() {
         --no-deps --ignore-installed --no-warn-script-location \
         "$(ls ./*.whl 2>/dev/null || echo ./"$(_dist_name)")"
     if [[ -d "$pkgdir/usr/bin" ]]; then  # Fix entry points.
+        python="#!$(readlink -f _tmpenv)/bin/python"
         for f in "$pkgdir/usr/bin/"*; do
-            if [[ $(head -n1 "$f") = "#!$(readlink -f _tmpenv)/bin/python" ]]; then
+            # Like [[ "$(head -n1 "$f")" = "#!$(readlink -f _tmpenv)/bin/python" ]]
+            # but without bash warning on null bytes in "$f" (if it is actually
+            # a compiled executable, not an entry point).
+            if python -c 'import os, sys; sys.exit(not open(sys.argv[1], "rb").read().startswith(os.fsencode(sys.argv[2]) + b"\n"))' "$f" "$python"; then
                 sed -i '1c#!/usr/bin/python' "$f"
             fi
         done

@@ -1,0 +1,16 @@
+pkgbase = python-xxhash
+	pkgdesc = Python binding for xxHash
+	pkgver = 3.2.0
+	pkgrel = 00
+	url = https://github.com/ifduyue/python-xxhash
+	arch = x86_64
+	license = BSD
+	depends = python
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/24/90/666a4d4d96a93ddaaaa0142ef8c1bd20f7135a7f1114a894f4d6efac16c5/xxhash-3.2.0.tar.gz
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 9bf4ee070c0d0bcc95e1083fd982233d
+	md5sums = 3a9dab7f159514231249aa3e108ab26b
+
+pkgname = python-xxhash

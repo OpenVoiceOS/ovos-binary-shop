@@ -1,0 +1,16 @@
+pkgbase = python-padaos
+	pkgdesc = A rigid, lightweight, dead-simple intent parser
+	pkgver = 0.1.10
+	pkgrel = 00
+	url = http://github.com/MatthewScholefield/padaos
+	arch = any
+	license = custom:MIT
+	depends = python
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/7a/32/5a9d9110a1ad4731bcba99c9b1291e29d740b45717bd5b5ba7e72627008f/padaos-0.1.10.tar.gz
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = dbf852015ef87a6694549779fb475b52
+	md5sums = 89814f70adf133ff9c8acc08137b3039
+
+pkgname = python-padaos

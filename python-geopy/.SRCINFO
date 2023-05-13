@@ -1,0 +1,21 @@
+pkgbase = python-geopy
+	pkgdesc = Python Geocoding Toolbox
+	pkgver = 2.3.0
+	pkgrel = 00
+	url = https://github.com/geopy/geopy
+	arch = any
+	license = MIT
+	depends = python
+	depends = python-geographiclib
+	depends = python-requests
+	depends = python-pytz
+	depends = python-urllib3
+	noextract = geopy-2.3.0-py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/e4/00/6313c0ffdd230164890f433019749189e0b884562bdc170e9c3a3454b3a6/geopy-2.3.0-py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 8f13bc6bfd9b273de89ce216578d4c7c
+	md5sums = b246754361f75980923b7feebfe71c15
+
+pkgname = python-geopy

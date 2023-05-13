@@ -1,0 +1,17 @@
+pkgbase = python-geographiclib
+	pkgdesc = The geodesic routines from GeographicLib
+	pkgver = 2.0
+	pkgrel = 00
+	url = https://geographiclib.sourceforge.io/Python/2.0
+	arch = any
+	license = MIT
+	depends = python
+	noextract = geographiclib-2.0-py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/9f/5a/a26132406f1f40cf51ea349a5f11b0a46cec02a2031ff82e391c2537247a/geographiclib-2.0-py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = cfafa47a4e69cf6ccbfe6f06dac7c76b
+	md5sums = 5fb429df6cb064435042deac91ef7c75
+
+pkgname = python-geographiclib

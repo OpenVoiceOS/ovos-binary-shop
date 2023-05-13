@@ -5,7 +5,6 @@ pkgbase = python-ytmusicapi
 	url = https://pypi.org/project/ytmusicapi/
 	arch = any
 	license = MIT
-	makedepends = python-pip
 	depends = python
 	depends = python-requests
 	noextract = ytmusicapi-1.0.2-py3-none-any.whl

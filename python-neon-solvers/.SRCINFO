@@ -1,0 +1,21 @@
+pkgbase = python-neon-solvers
+	pkgdesc = neon question solver plugin framework
+	pkgver = 0.0.2a1
+	pkgrel = 00
+	url = https://github.com/NeonGeckoCom/neon_solvers
+	arch = any
+	license = custom:bsd3
+	depends = python
+	depends = python-json-database
+	depends = python-neon-lang-plugin-libretranslate
+	depends = python-ovos-plugin-manager
+	depends = python-quebra-frases
+	noextract = neon_solvers-0.0.2a1-py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/6c/f2/98d1e9bb47b9b945c39ed7472af350e2cc4a6eaec272ee9dd9f1e3c2eed3/neon_solvers-0.0.2a1-py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 28c7552f0087fea94a73117691fc97cb
+	md5sums = a79ce2be2bec6b27995e6838f1afdfb6
+
+pkgname = python-neon-solvers

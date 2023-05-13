@@ -1,0 +1,18 @@
+pkgbase = python-tunein
+	pkgdesc = TuneIn radio api
+	pkgver = 0.0.3a1
+	pkgrel = 00
+	url = https://github.com/OpenJarbas/tunein
+	arch = any
+	license = custom:Apache-2.0
+	depends = python
+	depends = python-requests
+	noextract = tunein-0.0.3a1-py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/77/7e/d38dd286a4953deb360ce555333522be4d8bf028f7fdd61ab631c002a5ed/tunein-0.0.3a1-py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = e6c0de230f45fbaad34fdf1c1e754058
+	md5sums = 31de8f44bc100290cc57a2aad82335da
+
+pkgname = python-tunein

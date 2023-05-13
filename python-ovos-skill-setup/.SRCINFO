@@ -5,7 +5,6 @@ pkgbase = python-ovos-skill-setup
 	url = https://github.com/OpenVoiceOS/skill-ovos-setup
 	arch = any
 	license = custom:Apache-2.0
-	makedepends = python-pip
 	depends = python
 	depends = python-ovos-backend-client
 	depends = python-ovos-phal-plugin-system

@@ -1,21 +1,21 @@
 pkgbase = python-neon-skill-alerts
-	pkgver = 1.5.0
+	pkgver = 1.5.1a2
 	pkgrel = 00
 	url = https://github.com/NeonGeckoCom/skill-alerts
 	arch = any
 	license = custom:BSD-3-Clause
-	makedepends = python-pip
 	depends = python
 	depends = python-combo-lock
 	depends = python-json-database
 	depends = python-neon-utils
+	depends = python-ovos-bus-client
 	depends = python-ovos-utils
-	noextract = neon_skill_alerts-1.5.0-py3-none-any.whl
+	noextract = neon_skill_alerts-1.5.1a2-py3-none-any.whl
 	source = PKGBUILD_EXTRAS
-	source = https://files.pythonhosted.org/packages/a4/e8/b646d528d2c4f71add183024f25fca7e90bc4d0ece5ef01ccac44ea214c7/neon_skill_alerts-1.5.0-py3-none-any.whl
+	source = https://files.pythonhosted.org/packages/f2/be/0c60ed494c7916f615533d45fb50b9e8ecec5a058a34c9bb78ae6fbff4bb/neon_skill_alerts-1.5.1a2-py3-none-any.whl
 	source = LICENSE
 	md5sums = SKIP
-	md5sums = 7e566d3acf19ed4fa7927d919846e9f5
+	md5sums = c813f4079fb9fd65135054184d93c8ea
 	md5sums = 714c92f4075241d2f6a58035f06fc164
 
 pkgname = python-neon-skill-alerts

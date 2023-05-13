@@ -1,0 +1,19 @@
+pkgbase = python-padatious
+	pkgdesc = A neural network intent parser
+	pkgver = 0.4.8
+	pkgrel = 00
+	url = http://github.com/MycroftAI/padatious
+	arch = any
+	license = Apache
+	depends = python
+	depends = python-fann2
+	depends = python-padaos
+	depends = python-xxhash
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/d0/e7/70a6eb34b7e67fef5b2645df2ee1f807db2b5a345e4e6adfb2660a56425b/padatious-0.4.8.tar.gz
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 7dd2f1830737dc142aa199f77dacf32e
+	md5sums = 3e08776e9c5d3ddf494dae5c8f5b2c93
+
+pkgname = python-padatious

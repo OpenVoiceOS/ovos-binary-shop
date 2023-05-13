@@ -5,7 +5,7 @@ export PIP_DISABLE_PIP_VERSION_CHECK=true
 
 pkgname=python-pytube
 epoch=
-pkgver=12.1.3
+pkgver=15.0.0
 pkgrel=00
 pkgdesc='Python 3 library for downloading YouTube Videos.'
 arch=(any)
@@ -13,16 +13,16 @@ url=https://github.com/pytube/pytube
 license=('custom:The Unlicense (Unlicense)')
 depends=(python )
 ## EXTRA_DEPENDS ##
-makedepends=(python-pip)
+makedepends=()
 checkdepends=()
 provides=()
 conflicts=(${provides%=*})  # No quotes, to avoid an empty entry.
 source=(PKGBUILD_EXTRAS)
 md5sums=(SKIP)
 noextract=()
-source+=(https://files.pythonhosted.org/packages/40/79/a3cf0d933ae16031585535333fdc43217fce09205bc8bd061cb733982118/pytube-12.1.3-py3-none-any.whl)
-md5sums+=(c08e00fdd8ac2de86e240fb777993927)
-noextract+=(pytube-12.1.3-py3-none-any.whl)
+source+=(https://files.pythonhosted.org/packages/51/64/bcf8632ed2b7a36bbf84a0544885ffa1d0b4bcf25cc0903dba66ec5fdad9/pytube-15.0.0-py3-none-any.whl)
+md5sums+=(6c601c9803949146e294464d11bf1156)
+noextract+=(pytube-15.0.0-py3-none-any.whl)
 source+=(LICENSE)
 md5sums+=(7246f848faa4e9c9fc0ea91122d6e680)
 
@@ -114,8 +114,12 @@ _package() {
         --no-deps --ignore-installed --no-warn-script-location \
         "$(ls ./*.whl 2>/dev/null || echo ./"$(_dist_name)")"
     if [[ -d "$pkgdir/usr/bin" ]]; then  # Fix entry points.
+        python="#!$(readlink -f _tmpenv)/bin/python"
         for f in "$pkgdir/usr/bin/"*; do
-            if [[ $(head -n1 "$f") = "#!$(readlink -f _tmpenv)/bin/python" ]]; then
+            # Like [[ "$(head -n1 "$f")" = "#!$(readlink -f _tmpenv)/bin/python" ]]
+            # but without bash warning on null bytes in "$f" (if it is actually
+            # a compiled executable, not an entry point).
+            if python -c 'import os, sys; sys.exit(not open(sys.argv[1], "rb").read().startswith(os.fsencode(sys.argv[2]) + b"\n"))' "$f" "$python"; then
                 sed -i '1c#!/usr/bin/python' "$f"
             fi
         done

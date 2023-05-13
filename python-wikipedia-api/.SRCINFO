@@ -1,0 +1,18 @@
+pkgbase = python-wikipedia-api
+	pkgdesc = Python Wrapper for Wikipedia
+	pkgver = 0.5.8
+	pkgrel = 00
+	url = https://github.com/martin-majlis/Wikipedia-API
+	arch = any
+	license = MIT
+	depends = python
+	depends = python-requests
+	noextract = Wikipedia_API-0.5.8-py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/59/41/1bfbebe5574ee39603f677d3534e4ff9ca3683a97388bd7e92c7fba081e1/Wikipedia_API-0.5.8-py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 9de2e3ff0855140d9f872907aefc7cf7
+	md5sums = 9374e7481f35b6233a48c6907c604bad
+
+pkgname = python-wikipedia-api
