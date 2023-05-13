@@ -10,22 +10,23 @@ jobs:
     steps:
       - name: Install build Dependencies
         run: |
-          sudo pacman --noconfirm --needed -Sy pkgfile namcap python-pip git swig cython base-devel cargo gcc-fortran fann ninja python-google-api-core python-setuptools python-wheel pkgconf alsa-lib
+          sudo pacman --noconfirm --needed -Sy pkgfile namcap python-pip git swig cython base-devel cargo gcc-fortran fann ninja python-google-api-core python-setuptools python-wheel python-pillow pkgconf alsa-lib
           yes | LC_ALL=en_US.UTF-8 sudo pacman -S openblas
           pip install git+https://github.com/anntzer/pypi2pkgbuild
           pkgfile --update
       - name: gen PKGBUILDS
+          # already built with ovos-phal
+          # sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-PHAL-plugin-system
+          # sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-PHAL-plugin-color-scheme-manager
+          # sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-PHAL-plugin-network-manager
+          # sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-phal-plugin-ipgeo
+          # sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-PHAL-plugin-oauth
         run: |
           sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-phal
           sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-phal-plugin-connectivity-events
           sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-PHAL-plugin-wallpaper-manager
           sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-PHAL-plugin-brightness-control-rpi
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-PHAL-plugin-network-manager
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-phal-plugin-ipgeo
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-PHAL-plugin-oauth
           sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-PHAL-plugin-alsa
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-PHAL-plugin-system
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-PHAL-plugin-color-scheme-manager
       - uses: actions/checkout@v3
         with:
           ref: dev
