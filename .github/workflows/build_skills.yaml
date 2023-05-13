@@ -18,7 +18,7 @@ jobs:
         run: |
           sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-skill-weather
           sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre git+https://github.com/OpenVoiceOS/skill-ovos-tunein
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre skill-wikipedia-for-humans
+          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre git+https://github.com/OpenVoiceOS/skill-ovos-wikipedia
           sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre skill-news
           sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre skill-ddg
           sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre git+https://github.com/OpenVoiceOS/skill-ovos-camera
