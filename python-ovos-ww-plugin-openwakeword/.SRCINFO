@@ -5,7 +5,6 @@ pkgbase = python-ovos-ww-plugin-openwakeword
 	url = https://github.com/OpenVoiceOS/ovos-ww-plugin-openwakeword
 	arch = any
 	license = custom:Apache-2.0
-	makedepends = python-pip
 	depends = python
 	depends = python-openwakeword
 	noextract = ovos_ww_plugin_openwakeword-0.2.0-py3-none-any.whl

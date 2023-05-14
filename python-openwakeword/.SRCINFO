@@ -1,0 +1,21 @@
+pkgbase = python-openwakeword
+	pkgdesc = An open-source audio wake word (or phrase) detection framework with a focus on performance and simplicity
+	pkgver = 0.4.0
+	pkgrel = 00
+	url = https://pypi.org/project/openwakeword
+	arch = any
+	license = Apache
+	depends = python
+	depends = python-onnxruntime
+	depends = python-scikit-learn
+	depends = python-scipy
+	depends = python-tqdm
+	noextract = openwakeword-0.4.0-py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/18/0f/6b22ebf0808363d0c71f7e5d0880b1c13c6a2cdcae2dc2cb8adfbdbcc278/openwakeword-0.4.0-py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 7c63087badafd885ae75404ac0f6c5a8
+	md5sums = 86d3f3a95c324c9479bd8986968f4327
+
+pkgname = python-openwakeword

@@ -1,0 +1,17 @@
+pkgbase = python-keyboard
+	pkgdesc = Hook and simulate keyboard events on Windows and Linux
+	pkgver = 0.13.5
+	pkgrel = 00
+	url = https://github.com/boppreh/keyboard
+	arch = any
+	license = MIT
+	depends = python
+	noextract = keyboard-0.13.5-py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/55/88/287159903c5b3fc6d47b651c7ab65a54dcf9c9916de546188a7f62870d6d/keyboard-0.13.5-py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 1668622367c3381c5f12947a4196ac65
+	md5sums = e11e736328d7566f954eacfcaa6e4bb7
+
+pkgname = python-keyboard

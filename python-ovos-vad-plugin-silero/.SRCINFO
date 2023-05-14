@@ -5,7 +5,6 @@ pkgbase = python-ovos-vad-plugin-silero
 	url = https://github.com/OpenVoiceOS/ovos-vad-plugin-silero
 	arch = any
 	license = Apache
-	makedepends = python-pip
 	depends = python
 	depends = python-onnxruntime
 	depends = python-ovos-plugin-manager
