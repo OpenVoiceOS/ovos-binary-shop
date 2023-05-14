@@ -1,0 +1,24 @@
+pkgbase = python-altair
+	pkgdesc = Vega-Altair: A declarative statistical visualization library for Python.
+	pkgver = 5.0.0
+	pkgrel = 00
+	url = https://pypi.org/project/altair/
+	arch = any
+	license = BSD
+	depends = python
+	depends = python-jinja
+	depends = python-jsonschema
+	depends = python-numpy
+	depends = python-pandas
+	depends = python-toolz
+	depends = python-typing_extensions
+	depends = python-setuptools
+	noextract = altair-5.0.0-py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/2e/b8/49d377d9a7a85dc24e35d70384fc5ae7b19db6f8ee9d23d36337675c602e/altair-5.0.0-py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = efe2fd16339ab66c06271f756dfb772a
+	md5sums = 5b687f9c2cc367d6f902d2a47f4a1502
+
+pkgname = python-altair

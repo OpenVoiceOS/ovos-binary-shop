@@ -1,0 +1,26 @@
+pkgbase = python-huggingface-hub
+	pkgdesc = Client library to download and publish models, datasets and other repos on the huggingface.co hub
+	pkgver = 0.14.1
+	pkgrel = 00
+	url = https://github.com/huggingface/huggingface_hub
+	arch = any
+	license = Apache
+	depends = python
+	depends = python-filelock
+	depends = python-fsspec
+	depends = python-packaging
+	depends = python-yaml
+	depends = python-requests
+	depends = python-tqdm
+	depends = python-typing_extensions
+	depends = python-pydantic
+	depends = python-pillow
+	noextract = huggingface_hub-0.14.1-py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/58/34/c57b951aecd0248845932c1cfc15721237c50e463f26b0536673bcb76f4f/huggingface_hub-0.14.1-py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 2e6bb5101bd87fd999603f22f8104dc1
+	md5sums = 86d3f3a95c324c9479bd8986968f4327
+
+pkgname = python-huggingface-hub

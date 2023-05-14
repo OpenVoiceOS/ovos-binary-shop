@@ -1,0 +1,21 @@
+pkgbase = python-ovos-stt-plugin-fasterwhisper
+	pkgdesc = A fasterwhisper stt plugin for mycroft
+	pkgver = 0.0.1a4
+	pkgrel = 00
+	url = https://github.com/OpenVoiceOS/ovos-stt-plugin-fasterwhisper
+	arch = any
+	license = Apache
+	depends = python
+	depends = python-faster-whisper
+	depends = python-ovos-plugin-manager
+	depends = python-requests
+	depends = python-speechrecognition
+	noextract = ovos_stt_plugin_fasterwhisper-0.0.1a4-py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/4c/3a/3b4b1d88ca766ea4c68ff894be24f06ec586b300040123c1f5f0b4954cb8/ovos_stt_plugin_fasterwhisper-0.0.1a4-py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 466424072439b22de7665bd919730f1b
+	md5sums = 31de8f44bc100290cc57a2aad82335da
+
+pkgname = python-ovos-stt-plugin-fasterwhisper

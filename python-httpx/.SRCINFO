@@ -1,0 +1,21 @@
+pkgbase = python-httpx
+	pkgdesc = The next generation HTTP client.
+	pkgver = 0.24.0
+	pkgrel = 00
+	url = https://pypi.org/project/httpx/
+	arch = any
+	license = BSD
+	depends = python
+	depends = python-certifi
+	depends = python-httpcore
+	depends = python-idna
+	depends = python-sniffio
+	noextract = httpx-0.24.0-py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/4e/c1/692013f1e6115a061a14f6c7d05947515a1eb7b85ef6e9bf0ffbf0e92738/httpx-0.24.0-py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 3a1463e5e0b9a11654ea78eedf91b2ce
+	md5sums = 53603c402b2015364986250ac360fd0e
+
+pkgname = python-httpx

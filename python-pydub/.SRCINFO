@@ -1,0 +1,17 @@
+pkgbase = python-pydub
+	pkgdesc = Manipulate audio with an simple and easy high level interface
+	pkgver = 0.25.1
+	pkgrel = 00
+	url = http://pydub.com
+	arch = any
+	license = MIT
+	depends = python
+	noextract = pydub-0.25.1-py2.py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/a6/53/d78dc063216e62fc55f6b2eebb447f6a4b0a59f55c8406376f76bf959b08/pydub-0.25.1-py2.py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 8f526d3fa52f51ba859d8b21ee198271
+	md5sums = 54c4eedb695094a8d2d6db0421f3e4a1
+
+pkgname = python-pydub

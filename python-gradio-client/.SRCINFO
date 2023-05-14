@@ -1,0 +1,24 @@
+pkgbase = python-gradio-client
+	pkgdesc = Python library for easily interacting with trained machine learning models
+	pkgver = 0.2.4
+	pkgrel = 00
+	url = https://pypi.org/project/gradio-client/
+	arch = any
+	license = custom:unknown
+	depends = python
+	depends = python-fsspec
+	depends = python-httpx
+	depends = python-huggingface-hub
+	depends = python-packaging
+	depends = python-requests
+	depends = python-typing_extensions
+	depends = python-websockets
+	noextract = gradio_client-0.2.4-py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/a4/bf/38c4d6e8aed06924935bfbbe0faa9eae8a7d574155d132310cce6422f11e/gradio_client-0.2.4-py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 3e39929fb1793af65d451a1f74636f88
+	md5sums = e4761ae89d23a3f9a0ac3c39c13262dd
+
+pkgname = python-gradio-client

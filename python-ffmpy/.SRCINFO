@@ -1,0 +1,16 @@
+pkgbase = python-ffmpy
+	pkgdesc = A simple Python wrapper for ffmpeg
+	pkgver = 0.3.0
+	pkgrel = 00
+	url = https://github.com/Ch00k/ffmpy
+	arch = any
+	license = MIT
+	depends = python
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/bf/e2/947df4b3d666bfdd2b0c6355d215c45d2d40f929451cb29a8a2995b29788/ffmpy-0.3.0.tar.gz
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 633492c6355d857a1c043f490e44e42f
+	md5sums = 1e7ac252a382a0b5b6d4d9dfe7898c71
+
+pkgname = python-ffmpy

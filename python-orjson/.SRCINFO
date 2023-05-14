@@ -1,0 +1,17 @@
+pkgbase = python-orjson
+	pkgdesc = Fast, correct Python JSON library supporting dataclasses, datetimes, and numpy
+	pkgver = 3.8.12
+	pkgrel = 00
+	url = https://github.com/ijl/orjson
+	arch = x86_64
+	license = Apache
+	license = MIT
+	depends = python
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/3e/1d/e5628cd5828a325db7c1b3c241c99b76b1640ec2fd7b6eb6bd9895879e6b/orjson-3.8.12.tar.gz
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 68e2ee58dc064f562e408491d896f6e4
+	md5sums = 7be0d2278028180096c3bf630ffcdba7
+
+pkgname = python-orjson

@@ -1,0 +1,17 @@
+pkgbase = python-toolz
+	pkgdesc = List processing tools and functional utilities
+	pkgver = 0.12.0
+	pkgrel = 00
+	url = https://github.com/pytoolz/toolz/
+	arch = any
+	license = BSD
+	depends = python
+	noextract = toolz-0.12.0-py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/7f/5c/922a3508f5bda2892be3df86c74f9cf1e01217c2b1f8a0ac4841d903e3e9/toolz-0.12.0-py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 1b4ab36d27bcedca5eb7c0624fa5194b
+	md5sums = ca09cab178326d18433aae982d1edf5d
+
+pkgname = python-toolz

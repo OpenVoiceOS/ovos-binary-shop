@@ -1,0 +1,18 @@
+pkgbase = python-mdit-py-plugins
+	pkgdesc = Collection of plugins for markdown-it-py
+	pkgver = 0.3.5
+	pkgrel = 00
+	url = https://pypi.org/project/mdit-py-plugins/
+	arch = any
+	license = MIT
+	depends = python
+	depends = python-markdown-it-py
+	noextract = mdit_py_plugins-0.3.5-py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/fe/4c/a9b222f045f98775034d243198212cbea36d3524c3ee1e8ab8c0346d6953/mdit_py_plugins-0.3.5-py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = cc374b07969748d4f91f61ed6016acb2
+	md5sums = a38a1697260a7ad7bf29f44b362db1fc
+
+pkgname = python-mdit-py-plugins

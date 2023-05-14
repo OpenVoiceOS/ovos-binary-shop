@@ -1,0 +1,26 @@
+pkgbase = python-matplotlib
+	pkgdesc = Python plotting package
+	pkgver = 3.7.1
+	pkgrel = 00
+	url = https://matplotlib.org
+	arch = x86_64
+	license = PSF
+	depends = python
+	depends = python-contourpy
+	depends = python-cycler
+	depends = python-fonttools
+	depends = python-kiwisolver
+	depends = python-numpy
+	depends = python-packaging
+	depends = python-pillow
+	depends = python-pyparsing
+	depends = python-dateutil
+	depends = python-certifi
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/b7/65/d6e00376dbdb6c227d79a2d6ec32f66cfb163f0cd924090e3133a4f85a11/matplotlib-3.7.1.tar.gz
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 8d9aa2da68a5f588d8793a9429542601
+	md5sums = 6db81a3d5bfb20355356c2443c80de09
+
+pkgname = python-matplotlib

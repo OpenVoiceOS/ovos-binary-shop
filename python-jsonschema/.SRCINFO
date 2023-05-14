@@ -1,0 +1,22 @@
+pkgbase = python-jsonschema
+	pkgdesc = An implementation of JSON Schema validation for Python
+	pkgver = 4.17.3
+	pkgrel = 00
+	url = https://pypi.org/project/jsonschema/
+	arch = any
+	license = MIT
+	depends = python
+	depends = python-attrs
+	depends = python-pyrsistent
+	depends = python-typing_extensions
+	depends = python-requests
+	depends = python-idna
+	noextract = jsonschema-4.17.3-py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/c1/97/c698bd9350f307daad79dd740806e1a59becd693bd11443a0f531e3229b3/jsonschema-4.17.3-py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 19b08f13a7308e0c8d663a62314cd79f
+	md5sums = 7a60a81c146ec25599a3e1dabb8610a8
+
+pkgname = python-jsonschema

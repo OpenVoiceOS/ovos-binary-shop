@@ -1,0 +1,19 @@
+pkgbase = python-starlette
+	pkgdesc = The little ASGI library that shines.
+	pkgver = 0.26.1
+	pkgrel = 00
+	url = https://pypi.org/project/starlette/
+	arch = any
+	license = BSD
+	depends = python
+	depends = python-anyio
+	depends = python-typing_extensions
+	noextract = starlette-0.26.1-py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/12/48/f9c1ec6bee313aba264fbc2483d9070f4e4526f2538e2b55b1e4a391d938/starlette-0.26.1-py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = a1e68485cdcbe7e558128dc28a3f5787
+	md5sums = 53603c402b2015364986250ac360fd0e
+
+pkgname = python-starlette

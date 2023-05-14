@@ -1,0 +1,19 @@
+pkgbase = python-yarl
+	pkgdesc = Yet another URL library
+	pkgver = 1.9.2
+	pkgrel = 00
+	url = https://github.com/aio-libs/yarl/
+	arch = x86_64
+	license = Apache
+	makedepends = cython
+	depends = python
+	depends = python-idna
+	depends = python-multidict
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/5f/3f/04b3c5e57844fb9c034b09c5cb6d2b43de5d64a093c30529fd233e16cf09/yarl-1.9.2.tar.gz
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 4e46a0c7078d34d9734a7c5d182dee92
+	md5sums = 3b83ef96387f14655fc854ddc3c6bd57
+
+pkgname = python-yarl

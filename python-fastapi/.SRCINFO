@@ -1,0 +1,19 @@
+pkgbase = python-fastapi
+	pkgdesc = FastAPI framework, high performance, easy to learn, fast to code, ready for production
+	pkgver = 0.95.1
+	pkgrel = 00
+	url = https://pypi.org/project/fastapi/
+	arch = any
+	license = MIT
+	depends = python
+	depends = python-pydantic
+	depends = python-starlette
+	noextract = fastapi-0.95.1-py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/2e/84/d289e941ffec2f107d9097c8f7c2dbc874b0fc3fab9776aa3cc366d45ab2/fastapi-0.95.1-py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 4500f0bcedf1b08f489adb1cb0fafe70
+	md5sums = 95792ff3fe8e11aa49ceb247e66e4810
+
+pkgname = python-fastapi

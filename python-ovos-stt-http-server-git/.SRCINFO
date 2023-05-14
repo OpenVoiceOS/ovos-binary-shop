@@ -1,0 +1,24 @@
+pkgbase = python-ovos-stt-http-server-git
+	pkgdesc = simple aiohttp server to host OpenVoiceOS stt plugins as a service
+	pkgver = V0.0.2a5.r0.g57c6562
+	pkgrel = 1
+	url = https://github.com/OpenVoiceOS/ovos-stt-http-server
+	arch = any
+	license = Apache
+	makedepends = git
+	depends = python
+	depends = python-fastapi
+	depends = python-gradio
+	depends = python-ovos-plugin-manager
+	depends = python-ovos-utils
+	depends = python-uvicorn
+	provides = python-ovos-stt-http-server
+	conflicts = python-ovos-stt-http-server
+	source = PKGBUILD_EXTRAS
+	source = git+https://github.com/OpenVoiceOS/ovos-stt-http-server
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = SKIP
+	md5sums = a5c534c0b0d5eb7b11a937c909109c2c
+
+pkgname = python-ovos-stt-http-server-git

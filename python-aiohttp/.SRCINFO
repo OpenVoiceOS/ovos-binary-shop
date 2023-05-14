@@ -1,0 +1,25 @@
+pkgbase = python-aiohttp
+	pkgdesc = Async http client/server framework (asyncio)
+	pkgver = 3.8.4
+	pkgrel = 00
+	url = https://github.com/aio-libs/aiohttp
+	arch = x86_64
+	license = Apache
+	makedepends = cython
+	depends = python
+	depends = python-aiosignal
+	depends = python-async-timeout
+	depends = python-attrs
+	depends = python-charset-normalizer
+	depends = python-frozenlist
+	depends = python-multidict
+	depends = python-yarl
+	depends = python-typing_extensions
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/c2/fd/1ff4da09ca29d8933fda3f3514980357e25419ce5e0f689041edb8f17dab/aiohttp-3.8.4.tar.gz
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 8208bc4b519ac4520720577f93561855
+	md5sums = 748073912af33aa59430d3702aa32d41
+
+pkgname = python-aiohttp
