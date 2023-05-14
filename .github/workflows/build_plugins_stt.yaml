@@ -10,24 +10,25 @@ jobs:
     steps:
       - name: Install build Dependencies
         run: |
+          useradd -m -g root build
           sudo pacman --noconfirm --needed -Sy pkgfile namcap python-pip python-setuptools git swig cython gcc-fortran base-devel fann cargo ninja python-google-api-core python-setuptools python-wheel python-pillow pkgconf llvm alsa-lib
           yes | LC_ALL=en_US.UTF-8 sudo pacman -S openblas
           pip install git+https://github.com/anntzer/pypi2pkgbuild
           pkgfile --update
       - name: gen PKGBUILDS
         run: |
-          pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-stt-plugin-vosk
-          pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-stt-plugin-server
-          pypi2pkgbuild.py --base-path /tmp/build --force --no-install git+https://github.com/OpenVoiceOS/ovos-stt-http-server
-          pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-stt-plugin-whispercpp
-          pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-stt-plugin-fasterwhisper
-          pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-stt-plugin-pocketsphinx
-          pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-stt-plugin-selene
-          pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre git+https://github.com/OpenVoiceOS/ovos-stt-plugin-privox
-          pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre git+https://github.com/OpenVoiceOS/ovos-stt-plugin-whisper-tflite
-          pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre git+https://github.com/OpenVoiceOS/ovos-stt-plugin-whisper
-          pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre git+https://github.com/OpenVoiceOS/ovos-stt-plugin-deepgram
-          pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-stt-plugin-chromium
+          sudo -u build pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-stt-plugin-vosk
+          sudo -u build pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-stt-plugin-server
+          sudo -u build pypi2pkgbuild.py --base-path /tmp/build --force --no-install git+https://github.com/OpenVoiceOS/ovos-stt-http-server
+          sudo -u build pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-stt-plugin-whispercpp
+          sudo -u build pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-stt-plugin-fasterwhisper
+          sudo -u build pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-stt-plugin-pocketsphinx
+          sudo -u build pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-stt-plugin-selene
+          sudo -u build pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre git+https://github.com/OpenVoiceOS/ovos-stt-plugin-privox
+          sudo -u build pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre git+https://github.com/OpenVoiceOS/ovos-stt-plugin-whisper-tflite
+          sudo -u build pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre git+https://github.com/OpenVoiceOS/ovos-stt-plugin-whisper
+          sudo -u build pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre git+https://github.com/OpenVoiceOS/ovos-stt-plugin-deepgram
+          sudo -u build pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-stt-plugin-chromium
       - uses: actions/checkout@v3
         with:
           ref: dev
