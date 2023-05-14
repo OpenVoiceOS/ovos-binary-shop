@@ -16,18 +16,18 @@ jobs:
           pkgfile --update
       - name: gen PKGBUILDS
         run: |
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-stt-plugin-vosk
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-stt-plugin-server
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install git+https://github.com/OpenVoiceOS/ovos-stt-http-server
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-stt-plugin-whispercpp
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-stt-plugin-fasterwhisper
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-stt-plugin-pocketsphinx
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-stt-plugin-selene
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre git+https://github.com/OpenVoiceOS/ovos-stt-plugin-privox
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre git+https://github.com/OpenVoiceOS/ovos-stt-plugin-whisper-tflite
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre git+https://github.com/OpenVoiceOS/ovos-stt-plugin-whisper
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre git+https://github.com/OpenVoiceOS/ovos-stt-plugin-deepgram
-          sudo -u nobody pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-stt-plugin-chromium
+          pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-stt-plugin-vosk
+          pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-stt-plugin-server
+          pypi2pkgbuild.py --base-path /tmp/build --force --no-install git+https://github.com/OpenVoiceOS/ovos-stt-http-server
+          pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-stt-plugin-whispercpp
+          pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre ovos-stt-plugin-fasterwhisper
+          pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-stt-plugin-pocketsphinx
+          pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-stt-plugin-selene
+          pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre git+https://github.com/OpenVoiceOS/ovos-stt-plugin-privox
+          pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre git+https://github.com/OpenVoiceOS/ovos-stt-plugin-whisper-tflite
+          pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre git+https://github.com/OpenVoiceOS/ovos-stt-plugin-whisper
+          pypi2pkgbuild.py --base-path /tmp/build --force --no-install --no-deps --pre git+https://github.com/OpenVoiceOS/ovos-stt-plugin-deepgram
+          pypi2pkgbuild.py --base-path /tmp/build --force --no-install --pre ovos-stt-plugin-chromium
       - uses: actions/checkout@v3
         with:
           ref: dev
