@@ -1,0 +1,23 @@
+pkgbase = python-hypercorn
+	pkgdesc = A ASGI Server based on Hyper libraries and inspired by Gunicorn
+	pkgver = 0.14.3
+	pkgrel = 00
+	url = https://github.com/pgjones/hypercorn/
+	arch = any
+	license = MIT
+	depends = python
+	depends = python-h11
+	depends = python-h2
+	depends = python-priority
+	depends = python-toml
+	depends = python-wsproto
+	depends = python-typing_extensions
+	noextract = Hypercorn-0.14.3-py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/be/8b/e856965857137bc594e8fd52fef1d00b79913a6a01033cba772276aff10b/Hypercorn-0.14.3-py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 50bb42f8fae789b7466515c7e6ac5b1e
+	md5sums = 8b55b0913488ba6e14df06d407f10691
+
+pkgname = python-hypercorn

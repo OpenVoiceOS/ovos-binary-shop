@@ -1,0 +1,19 @@
+pkgbase = python-swagger-ui-py
+	pkgdesc = Swagger UI for Python web framework, such as Tornado, Flask, Quart, Sanic and Falcon.
+	pkgver = 22.7.13
+	pkgrel = 00
+	url = https://github.com/PWZER/swagger-ui-py
+	arch = any
+	license = custom:Apache License 2.0
+	depends = python
+	depends = python-jinja
+	depends = python-yaml
+	noextract = swagger_ui_py-22.7.13-py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/19/e4/45e69cb8567ef82d1ddfd00f9ebe7dc609767dea749db29085e81191a5c5/swagger_ui_py-22.7.13-py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 2830dcc08e73a54fc78b12357c4f8e97
+	md5sums = c549626c9205c804b8b88989ace21d27
+
+pkgname = python-swagger-ui-py

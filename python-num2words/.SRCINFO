@@ -1,0 +1,18 @@
+pkgbase = python-num2words
+	pkgdesc = Modules to convert numbers to words. Easily extensible.
+	pkgver = 0.5.12
+	pkgrel = 00
+	url = https://github.com/savoirfairelinux/num2words
+	arch = any
+	license = LGPL
+	depends = python
+	depends = python-docopt
+	noextract = num2words-0.5.12-py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/eb/09/b14d798bc02411b1e5a9896d680f8f417cadc53232bbf7ae9d30263dcf45/num2words-0.5.12-py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 47ef0d3512658d4b2ba0446d6de69bee
+	md5sums = f1b68565299e4b2403b8b3a87d0bcacf
+
+pkgname = python-num2words

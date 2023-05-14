@@ -5,7 +5,6 @@ pkgbase = python-ovos-tts-plugin-mimic
 	url = https://github.com/OpenVoiceOS/ovos-tts-plugin-mimic
 	arch = any
 	license = Apache
-	makedepends = python-pip
 	depends = python
 	depends = python-ovos-plugin-manager
 	noextract = ovos_tts_plugin_mimic-0.2.8-py3-none-any.whl

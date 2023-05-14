@@ -1,0 +1,16 @@
+pkgbase = python-phonemes2ids
+	pkgdesc = Convert phonemes to integer ids
+	pkgver = 1.2.2
+	pkgrel = 00
+	url = https://github.com/rhasspy/phonemes2ids
+	arch = any
+	license = MIT
+	depends = python
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/27/6f/0cf0746d02a356103b7c3a065dbc188d8b5092e58bb363d74aa668ee1ad1/phonemes2ids-1.2.2.tar.gz
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = ade80bfa91c00615a512768fa4371585
+	md5sums = 3a972d156692b1094e66174937ac5a6e
+
+pkgname = python-phonemes2ids

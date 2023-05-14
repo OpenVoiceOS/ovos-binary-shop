@@ -1,0 +1,19 @@
+pkgbase = python-gtts
+	pkgdesc = gTTS (Google Text-to-Speech), a Python library and CLI tool to interface with Google Translate text-to-speech API
+	pkgver = 2.3.2
+	pkgrel = 00
+	url = https://pypi.org/project/gTTS/
+	arch = any
+	license = MIT
+	depends = python
+	depends = python-click
+	depends = python-requests
+	noextract = gTTS-2.3.2-py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/98/da/4b8bb016aca4abebe5b582ce1b17604a1d9bc91499ac2214e1fa250f69b6/gTTS-2.3.2-py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 9ab98e1446f5feade7a60e74df996069
+	md5sums = 89136da6ac7eebb69667d50ad9306011
+
+pkgname = python-gtts

@@ -1,0 +1,22 @@
+pkgbase = python-dateparser
+	pkgdesc = Date parsing library designed to parse dates from HTML pages
+	pkgver = 1.1.8
+	pkgrel = 00
+	url = https://github.com/scrapinghub/dateparser
+	arch = any
+	license = BSD
+	depends = python
+	depends = python-dateutil
+	depends = python-pytz
+	depends = python-regex
+	depends = python-tzlocal
+	depends = python-requests
+	noextract = dateparser-1.1.8-py2.py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/7a/bf/457ed5be028fb235f8f5ad40b5ddbf67023e0017090ea324d0fe6239a73c/dateparser-1.1.8-py2.py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 30c0eedc2498b7e44dd023d036f53b1f
+	md5sums = 3d3ed25571191e7aa3f55d0a6efe0051
+
+pkgname = python-dateparser

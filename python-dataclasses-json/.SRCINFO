@@ -1,0 +1,20 @@
+pkgbase = python-dataclasses-json
+	pkgdesc = Easily serialize dataclasses to and from JSON
+	pkgver = 0.5.7
+	pkgrel = 00
+	url = https://github.com/lidatong/dataclasses-json
+	arch = any
+	license = custom:MIT
+	depends = python
+	depends = python-marshmallow
+	depends = python-marshmallow-enum
+	depends = python-typing_inspect
+	noextract = dataclasses_json-0.5.7-py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/58/7e/2042610dfc8121e8119ad8b94db496d8697e4b0ef7a6e378018a2bd84435/dataclasses_json-0.5.7-py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 9f1f91306fd7b8dc4679d5148d0b23ac
+	md5sums = 0c1876b666ebd26c12461357f868c812
+
+pkgname = python-dataclasses-json

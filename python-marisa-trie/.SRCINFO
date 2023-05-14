@@ -1,0 +1,18 @@
+pkgbase = python-marisa-trie
+	pkgdesc = Static memory-efficient and fast Trie-like structures for Python.
+	pkgver = 0.8.0
+	pkgrel = 00
+	url = https://github.com/kmike/marisa-trie
+	arch = x86_64
+	license = MIT
+	makedepends = cython
+	depends = python
+	depends = python-setuptools
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/50/34/6e4e981487bac2146a16fba07be2702399a610593d009788d8b715dd504f/marisa-trie-0.8.0.tar.gz
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 768f4eb0d21bbcb64af7700bd8ecb92a
+	md5sums = 7aec4ffcc41d411df4c35a63af9fe13b
+
+pkgname = python-marisa-trie

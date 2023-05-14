@@ -1,0 +1,18 @@
+pkgbase = python-marshmallow-enum
+	pkgdesc = Enum field for Marshmallow
+	pkgver = 1.5.1
+	pkgrel = 00
+	url = https://pypi.org/project/marshmallow-enum/
+	arch = any
+	license = custom:MIT
+	depends = python
+	depends = python-marshmallow
+	noextract = marshmallow_enum-1.5.1-py2.py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/c6/59/ef3a3dc499be447098d4a89399beb869f813fee1b5a57d5d79dee2c1bf51/marshmallow_enum-1.5.1-py2.py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 8d7f93cbd674015b878c199b82b96585
+	md5sums = 4d514ad4626084e7786a50f15f0ba672
+
+pkgname = python-marshmallow-enum

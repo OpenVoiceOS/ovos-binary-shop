@@ -1,0 +1,19 @@
+pkgbase = python-ovos-tts-plugin-marytts
+	pkgdesc = A marytts plugin for OpenVoiceOS
+	pkgver = 0.0.1a1
+	pkgrel = 00
+	url = https://github.com/OpenVoiceOS/ovos-tts-plugin-marytts
+	arch = any
+	license = custom:Apache2
+	depends = python
+	depends = python-ovos-plugin-manager
+	depends = python-requests
+	noextract = ovos_tts_plugin_marytts-0.0.1a1-py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/4f/90/1f8808bb03abe0f078844cab64a16fc3d56bd3ab80fc32833c06238435f1/ovos_tts_plugin_marytts-0.0.1a1-py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 1f03cde9b6a5c854a2658bcd426939ce
+	md5sums = 5d00ad131cf9e051d0b0dc61f7ea003d
+
+pkgname = python-ovos-tts-plugin-marytts

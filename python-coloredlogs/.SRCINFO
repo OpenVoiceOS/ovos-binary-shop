@@ -1,0 +1,18 @@
+pkgbase = python-coloredlogs
+	pkgdesc = Colored terminal output for Python's logging module
+	pkgver = 15.0.1
+	pkgrel = 00
+	url = https://coloredlogs.readthedocs.io
+	arch = any
+	license = MIT
+	depends = python
+	depends = python-humanfriendly
+	noextract = coloredlogs-15.0.1-py2.py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/a7/06/3d6badcf13db419e25b07041d9c7b4a2c331d3f4e7134445ec5df57714cd/coloredlogs-15.0.1-py2.py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 608499c232d5cabf7145201a26db2191
+	md5sums = 764e737b117a38d773609885e8d04f0b
+
+pkgname = python-coloredlogs

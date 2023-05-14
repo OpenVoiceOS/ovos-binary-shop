@@ -1,0 +1,26 @@
+pkgbase = python-quart
+	pkgdesc = A Python ASGI web microframework with the same API as Flask
+	pkgver = 0.18.4
+	pkgrel = 00
+	url = https://github.com/pallets/quart/
+	arch = any
+	license = MIT
+	depends = python
+	depends = python-aiofiles
+	depends = python-blinker
+	depends = python-click
+	depends = python-hypercorn
+	depends = python-itsdangerous
+	depends = python-jinja
+	depends = python-markupsafe
+	depends = python-werkzeug
+	depends = python-typing_extensions
+	noextract = quart-0.18.4-py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/8f/79/ccd45c2374711b632647aad3dc27af4341c96a852049603493e33c288762/quart-0.18.4-py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 4a7073f874d44c2f3865d08dc64cb851
+	md5sums = eda1e14eec511d8f00b71ed576f1ecdf
+
+pkgname = python-quart

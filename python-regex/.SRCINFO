@@ -1,0 +1,16 @@
+pkgbase = python-regex
+	pkgdesc = Alternative regular expression module, to replace re.
+	pkgver = 2023.5.5
+	pkgrel = 00
+	url = https://github.com/mrabarnett/mrab-regex
+	arch = x86_64
+	license = Apache
+	depends = python
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/77/5d/98efc9cf46d60f3704cf00f8b3bd81319493639fd4367efb5d02fd29ffc1/regex-2023.5.5.tar.gz
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 112d22df01c1ec73a462446b0b3b8bc1
+	md5sums = 7b5751ddd6b643203c31ff873051d069
+
+pkgname = python-regex

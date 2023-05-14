@@ -1,0 +1,17 @@
+pkgbase = python-toml
+	pkgdesc = Python Library for Tom's Obvious, Minimal Language
+	pkgver = 0.10.2
+	pkgrel = 00
+	url = https://github.com/uiri/toml
+	arch = any
+	license = MIT
+	depends = python
+	noextract = toml-0.10.2-py2.py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/44/6f/7120676b6d73228c96e17f1f794d8ab046fc910d781c8d151120c3f1569e/toml-0.10.2-py2.py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = dc26cd71b80d6757139f38156a43c545
+	md5sums = 16c77b2b1050d2f03cb9c2ed0edaf4f0
+
+pkgname = python-toml

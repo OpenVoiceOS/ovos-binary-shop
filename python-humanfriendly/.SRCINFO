@@ -1,0 +1,17 @@
+pkgbase = python-humanfriendly
+	pkgdesc = Human friendly output for text interfaces using Python
+	pkgver = 10.0
+	pkgrel = 00
+	url = https://humanfriendly.readthedocs.io
+	arch = any
+	license = MIT
+	depends = python
+	noextract = humanfriendly-10.0-py2.py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/f0/0f/310fb31e39e2d734ccaa2c0fb981ee41f7bd5056ce9bc29b2248bd569169/humanfriendly-10.0-py2.py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = f0bc5c4d63a4b6208f89daf517c68223
+	md5sums = 5d178009f806c2bdd498a19be0013a7a
+
+pkgname = python-humanfriendly

@@ -1,0 +1,17 @@
+pkgbase = python-responsivevoice
+	pkgdesc = unofficial python wrapper for responsive voice
+	pkgver = 0.6.0a2
+	pkgrel = 00
+	url = https://github.com/OpenJarbas/py_responsivevoice
+	arch = any
+	license = custom:Apache2
+	depends = python
+	depends = python-requests
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/83/a1/123ccbf14b542bad4431e8b26ae361d1d4df8485e52de7c572fd72718fa2/ResponsiveVoice-0.6.0a2.tar.gz
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 8365f364e88271322a0e1b940d201761
+	md5sums = 5d00ad131cf9e051d0b0dc61f7ea003d
+
+pkgname = python-responsivevoice

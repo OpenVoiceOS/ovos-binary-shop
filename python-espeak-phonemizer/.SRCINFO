@@ -1,0 +1,16 @@
+pkgbase = python-espeak-phonemizer
+	pkgdesc = Lightweight International Phonetic Alphabet (IPA) phonemizer that uses libespeak-ng
+	pkgver = 1.3.0
+	pkgrel = 00
+	url = https://github.com/rhasspy/espeak-phonemizer
+	arch = any
+	license = MIT
+	depends = python
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/db/bb/679e091d901f352e309f2bea64014827cb3cc436946ab626c870b35c5709/espeak_phonemizer-1.3.0.tar.gz
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 6f5c1aba410b35c5e321153c229911fc
+	md5sums = d32239bcb673463ab874e80d47fae504
+
+pkgname = python-espeak-phonemizer

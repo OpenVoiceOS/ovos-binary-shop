@@ -1,0 +1,22 @@
+pkgbase = python-epitran
+	pkgdesc = Tools for transcribing languages into IPA.
+	pkgver = 1.24
+	pkgrel = 00
+	url = http://github.com/dmort27/epitran
+	arch = any
+	license = custom:MIT
+	depends = python
+	depends = python-marisa-trie
+	depends = python-panphon
+	depends = python-regex
+	depends = python-requests
+	depends = python-setuptools
+	noextract = epitran-1.24-py2.py3-none-any.whl
+	source = PKGBUILD_EXTRAS
+	source = https://files.pythonhosted.org/packages/77/2b/340409eea685f08b438fd7d079ec67ec927769009dd0afec1ce906671da2/epitran-1.24-py2.py3-none-any.whl
+	source = LICENSE
+	md5sums = SKIP
+	md5sums = 00e199529a02060eb843757b93151736
+	md5sums = 69eeb9b314a12d962c66db4e043f99ea
+
+pkgname = python-epitran
